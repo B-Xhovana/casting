@@ -12,7 +12,7 @@ import it.corso.service.AttoreService;
 //localhost:8080/areariservata
 @Controller
 @RequestMapping("/areariservata")
-public class IndexController 
+public class AreaRiservataController 
 {
 
 	@Autowired
