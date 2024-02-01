@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page casting</title>
+    <style>
+        .film-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .film-item {
+            width: 200px; 
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nome Agenzia Home Page</h1>
+    
+    <div th:each="genereFilms : ${filmPerGenere}">
+        <h4 th:text="${genereFilms.key}"></h4>
+        <div class="film-container">
+            <div th:each="film : ${genereFilms.value}" class="film-item">
+                <h3 th:text="${film.titolo}"></h3>
+                <img th:src="${film.locandina}" th:alt="${film.titolo}" width="150" height="200"/>
+                <br>
+                <a >Vai a scheda film</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
