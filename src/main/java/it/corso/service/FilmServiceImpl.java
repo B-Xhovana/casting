@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.corso.dao.FilmDao;
+import it.corso.model.Attore;
 import it.corso.model.Film;
 @Service
 public class FilmServiceImpl implements FilmService {
@@ -52,5 +53,15 @@ public class FilmServiceImpl implements FilmService {
 	@Override
 	public Film getFilmByID(int id) {
 		return filmDao.findById(id).get();
+	}
+
+
+
+
+	@Override
+	public List<Attore> getCastByFilmId(int id) {
+		
+		Film film = filmDao.findById(id).orElse(null);
+		return (film != null) ? film.getAttori() : null;
 	}
 }

@@ -16,5 +16,7 @@
         <p>Genere: <span th:text="${film.genere}"></span></p>
         <p>Trailer: <span th:text="${film.trailer}"></span></p> 
         <a th:if="${film.trailer != null}" th:href="${film.trailer}">Guarda il trailer</a>
+        <a th:text="${film.titolo}"></a>
+        <a th:href="@{/dettaglioattore(id=${attore.id})}" th:text="${attore.nome}+' '+${attore.cognome}">Vai a scheda attore</a>
 	</body>
 </html>
