@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import it.corso.dao.AttoreDao;
 import it.corso.model.Attore;
+import it.corso.model.Film;
 
 @Service
 public class AttoreServiceImpl implements AttoreService {
@@ -36,5 +37,11 @@ public class AttoreServiceImpl implements AttoreService {
 		attoreDao.delete(attore);
 
 	}
+	
+	@Override
+    public List<Film> getFilmByAttoreId(int attoreId) {
+        Attore attore = attoreDao.findById(attoreId).orElse(null);
+        return (attore != null) ? attore.getFilms() : null;
+    }
 
 }
