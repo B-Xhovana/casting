@@ -18,5 +18,6 @@ public interface AttoreService {
 	List<Film> getFilmByAttoreId(int attoreId);
 	public boolean controlloLogin(String email, String password, HttpSession session);
 	Attore checkAttore(String email);
+	void modificaFoto(HttpSession session, MultipartFile ritratto, MultipartFile foto);
 	
 }

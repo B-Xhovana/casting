@@ -97,5 +97,36 @@ public class AttoreServiceImpl implements AttoreService {
         Attore attore = attoreDao.findById(attoreId).orElse(null);
         return (attore != null) ? attore.getFilms() : null;
     }
+	
+	
+	@Override
+	public void modificaFoto(HttpSession session, MultipartFile ritratto, MultipartFile foto) 
+	{
+		Attore attore = new Attore();
+		
+		if(ritratto!=null && !ritratto.isEmpty()) {
+			try {
+				
+				String estensione = ritratto.getContentType(); 
+				
+				attore.setRitratto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(ritratto.getBytes()));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		if(foto!=null && !foto.isEmpty()) {
+			try {
+				
+				String estensione = foto.getContentType(); 
+				
+				attore.setFoto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(foto.getBytes()));
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		attoreDao.save(attore);
+		
+	}
 
 }

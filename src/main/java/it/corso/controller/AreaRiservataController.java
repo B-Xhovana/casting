@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import it.corso.model.Attore;
 import it.corso.service.AttoreService;
@@ -37,4 +39,13 @@ public class AreaRiservataController
 			attoreService.cancellaAttore(attoreService.getAttoreById(id));
 			return "redirect:/";
 	}
+	
+	@PostMapping
+	public String gestioneModifica(HttpSession session,
+			@RequestParam(name="ritratto",required = false) MultipartFile ritratto,
+            @RequestParam(name="foto",required = false) MultipartFile foto) {
+		
+				attoreService.modificaFoto(session, ritratto, foto);
+				return "redirect:/riservata";
+		}
 }
