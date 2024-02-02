@@ -6,10 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import it.corso.dao.FilmDao;
-import it.corso.model.Attore;
 import it.corso.model.Film;
 @Service
 public class FilmServiceImpl implements FilmService {
@@ -25,8 +22,6 @@ public class FilmServiceImpl implements FilmService {
 
 
 
-
-	@SuppressWarnings("unchecked")
 	@Override
 	public Map<String, List<Film>> getFilmByGenere(List<Film> films){
 		List<String> generi = films.stream()

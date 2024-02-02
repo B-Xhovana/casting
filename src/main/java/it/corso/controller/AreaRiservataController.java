@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.corso.model.Attore;
 import it.corso.service.AttoreService;
+import jakarta.servlet.http.HttpSession;
 
 //localhost:8080/areariservata
 @Controller
@@ -19,10 +21,13 @@ public class AreaRiservataController
 	private AttoreService attoreService;
 	
 	@GetMapping
-	public String getPage(Model model,
-			@RequestParam("id")int id) 
+	public String getPage(
+			Model model,
+			HttpSession session
+			) 
 	{
-		model.addAttribute("attore", attoreService.getAttoreById(id));
+		Attore attore = (Attore) session.getAttribute("attore");
+		model.addAttribute("attore", attore);
 		return "areariservata";
 	}
 	

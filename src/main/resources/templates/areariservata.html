@@ -7,7 +7,7 @@
 	<body>
 		<h1 th:text="'Ciao ' + ${attore.nome}+ '!' " ></h1>
 		<h2>Questa è la tua area riservata</h2>
-		
+		<a th:href="@{/}">Torna alla Home</a>
 		<h3 th:text="${attore.nome} + ' questi sono i tuoi dati: '"></h3>
 		<ul>
 			<li th:text="'Nome: ' + ${attore.nome}"></li>
