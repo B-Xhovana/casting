@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Dettaglio film</title>
+	</head>
+	<body>
+		<h1>Scheda film</h1>
+		<br>
+		<p>ID: <span th:text="${film.id}"></span></p>
+        <p>Titolo: <span th:text="${film.titolo}"></span></p>
+        <p>Locandina: </p> 
+        <img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
+        <p>Trama: <span th:text="${film.trama}"></span></p>
+        <p>Data di uscita: <span th:text="${film.dataUscita}"></span></p>
+        <p>Genere: <span th:text="${film.genere}"></span></p>
+        <p>Trailer: <span th:text="${film.trailer}"></span></p> 
+        <a th:if="${film.trailer != null}" th:href="${film.trailer}">Guarda il trailer</a>
+        <a th:text="${film.titolo}"></a>
+        <a th:href="@{/dettaglioattore(id=${attore.id})}" th:text="${attore.nome}+' '+${attore.cognome}">Vai a scheda attore</a>
+	</body>
+</html>

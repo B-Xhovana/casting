@@ -1,5 +1,7 @@
 package it.corso.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,33 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import it.corso.model.Attore;
+import it.corso.model.Film;
 import it.corso.service.AttoreService;
-import jakarta.servlet.http.HttpSession;
 
-//localhost:8080/areariservata
+//localhost:8080/dettaglioattore
 @Controller
-@RequestMapping("/areariservata")
-public class AreaRiservataController 
-{
-
+@RequestMapping("/dettaglioattore")
+public class DettaglioAttoreController {
+// anche film che ha fatto	
 	@Autowired
 	private AttoreService attoreService;
 	
 	@GetMapping
-	public String getPage(
-			Model model,
-			HttpSession session
-			) 
-	{
-		Attore attore = (Attore) session.getAttribute("attore");
+	public String getPage(@RequestParam("id") int id, Model model) {
+		Attore attore = attoreService.getAttoreById(id);
+		List<Film> film = attoreService.getFilmByAttoreId(id);
 		model.addAttribute("attore", attore);
-		return "areariservata";
+		model.addAttribute("film", film);
+		return "dettaglioattore";
 	}
 	
-	@GetMapping("/cancellaattore")
-	public String cancellaAttore(@RequestParam ("id") int id) 
-		{
-			attoreService.cancellaAttore(attoreService.getAttoreById(id));
-			return "redirect:/";
-	}
 }

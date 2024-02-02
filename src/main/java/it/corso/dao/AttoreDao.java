@@ -6,4 +6,6 @@ import it.corso.model.Attore;
 
 public interface AttoreDao extends CrudRepository<Attore, Integer>{
 
+	Attore findByEmailAndPassword(String email, String password);
+	Attore findByEmail(String email);
 }
