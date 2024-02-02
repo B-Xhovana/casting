@@ -18,8 +18,8 @@
         <a th:if="${film.trailer != null}" th:href="${film.trailer}">Guarda il trailer</a>
         <a th:text="${film.titolo}"></a>
         <h5>Cast</h5>
-        <ul th:each="attore : ${cast}">
-            <li>
+        <ul>
+            <li th:each="attore : ${cast}">
                 <a th:href="@{/dettaglioattore(id=${attore.id})}" th:text="${attore.nome}+' '+${attore.cognome}">Vai a scheda attore</a>
             </li>
         </ul>
