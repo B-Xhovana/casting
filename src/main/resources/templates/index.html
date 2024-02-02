@@ -18,6 +18,13 @@
 </head>
 <body>
     <h1>Nome Agenzia Home Page</h1>
+   
+     <div th:if="${attorelog} == null">
+    <a th:href="@{/login}">Log In</a>
+    </div >
+     <div th:if="${attorelog} != null">
+    <a th:href="@{/areariservata}">Area Riservata</a>
+    </div>
     
     <div th:each="genereFilms : ${filmPerGenere}">
         <h4 th:text="${genereFilms.key}"></h4>
@@ -26,7 +33,7 @@
                 <h3 th:text="${film.titolo}"></h3>
                 <img th:src="${film.locandina}" th:alt="${film.titolo}" width="150" height="200"/>
                 <br>
-                <a >Vai a scheda film</a>
+                <a th:href="@{/dettagliofilm(id=${film.id})}">Vai a scheda film</a>  
             </div>
         </div>
     </div>

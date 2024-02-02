@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import it.corso.model.Film;
 import it.corso.service.FilmService;
+import jakarta.servlet.http.HttpSession;
 
 //localhost:8080
 @Controller
@@ -18,10 +19,12 @@ public class IndexController {
 	private FilmService filmService;
 	
 	@GetMapping
-	public String getPage(Model model) {
+	public String getPage(Model model, HttpSession session) {
 		List<Film> films = filmService.getFilms();
 		Map<String, List<Film>> filmPerGenere = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere", filmPerGenere);
+		
+		model.addAttribute("attorelog", session.getAttribute("attore"));
 		
 		return "index";
 	
