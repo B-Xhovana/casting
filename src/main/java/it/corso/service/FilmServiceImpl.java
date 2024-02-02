@@ -37,20 +37,10 @@ public class FilmServiceImpl implements FilmService {
 
 
 
-
-	@Override
-	public String[] getListaGeneri() {
-		return filmDao.generiArray();
-	}
-
-
-
-	
-
-
-
 	@Override
 	public Film getFilmByID(int id) {
 		return filmDao.findById(id).get();
 	}
+
+
 }

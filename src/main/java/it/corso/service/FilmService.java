@@ -16,7 +16,7 @@ public interface FilmService {
 	Film getFilmByID(int id);
 	//Medoto con stream per ottenere il catalogo dei film divisi per genenere in home page
 	Map<String, List<Film>> getFilmByGenere(List<Film> films);
-	String[] getListaGeneri();
+	
 	
 	
 	
