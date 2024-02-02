@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import it.corso.service.FilmService;
 
+// localhost:8080/dettagliofilm
 @Controller
-@RequestMapping("/film")
-public class FilmController {
+@RequestMapping("/dettagliofilm")
+public class DettaglioFilmController {
 
 	@Autowired
 	private FilmService filmService;
@@ -21,7 +22,7 @@ public class FilmController {
 		
 		model.addAttribute("film",filmService.getFilmByID(id));
 	
-		return "film";
+		return "dettagliofilm";
 	}
 	
 }
