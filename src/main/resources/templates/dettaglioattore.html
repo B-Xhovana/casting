@@ -20,8 +20,7 @@
 		<p>Elenco film in cui è presente attore: </p>
 		<ul>
         <li th:each="film : ${film}">
-        	<!-- inserire th:href= ... per la pagina dettaglioFilm -->
-            <a th:text="${film.titolo}"></a>
+            <a th:href="@{/dettagliofilm(id=${film.id})}" th:text="${film.titolo}">Vai a scheda film</a>
         </li>
     </ul>
 	</body>
