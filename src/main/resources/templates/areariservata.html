@@ -21,7 +21,7 @@
 		<img th:src="${attore.ritratto}">
 		<h3>Questa è la foto a figura intera che hai caricato</h3>
 		<img th:src="${attore.foto}">
-		<a th:href="@{attore/cancellaattore(id=${id})}" 
+		<a th:href="@{areariservata/cancellaattore(id=${attore.id})}"
 										class="btn btn-danger btn-sm" th:text="'Elimina la tua area riservata'"></a>
 	</body>
 </html>
