@@ -10,8 +10,7 @@ import it.corso.service.AttoreService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.web.bind.annotation.PostMapping;
 
-//CHIEDI A DAVIDE
-//Create a XML file tomcat-users.xml for login functionality.
+
 
 @Controller
 @RequestMapping("/login")
@@ -35,7 +34,7 @@ public class LoginController {
 							  HttpSession session,
 							  Model model) {
 		
-		if (!attoreService.controlloLogin(email,password,session) || session.getAttribute("attore")==null ) {
+		if (session.getAttribute("attore")==null || !attoreService.controlloLogin(email,password,session)) {
 			return "redirect:/login";
 		}
 		return "redirect:/areariservata";
