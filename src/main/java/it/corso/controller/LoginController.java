@@ -34,7 +34,8 @@ public class LoginController {
 							  @RequestParam("password") String password,
 							  HttpSession session,
 							  Model model) {
-		if (!attoreService.controlloLogin(email,password,session)) {
+		
+		if (!attoreService.controlloLogin(email,password,session) || session.getAttribute("attore")==null ) {
 			return "redirect:/login";
 		}
 		return "redirect:/areariservata";

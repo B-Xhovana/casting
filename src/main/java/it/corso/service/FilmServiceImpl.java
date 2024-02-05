@@ -3,12 +3,12 @@ package it.corso.service;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import it.corso.dao.FilmDao;
 import it.corso.model.Attore;
 import it.corso.model.Film;
+
 @Service
 public class FilmServiceImpl implements FilmService {
 
@@ -16,52 +16,25 @@ public class FilmServiceImpl implements FilmService {
 	private FilmDao filmDao;
 	
 	@Override
-	public List<Film> getFilms() {
+	public List<Film> getFilms() {	
 		return (List<Film>) filmDao.findAll();
 	}
 
-
-
-
-	@Override
-	public Map<String, List<Film>> getFilmByGenere(List<Film> films){
-		List<String> generi = films.stream()
-				.map(Film::getGenere)
-				.collect(Collectors.toList());
-		
-		List<Film> filmsPerGenere = filmDao.findByGenereIn(generi);
-		return filmsPerGenere.stream()
-				.collect(Collectors.groupingBy(Film::getGenere, Collectors.toList()));
-	}
-
-
-
-
-
-
-	@Override
-	public String[] getListaGeneri() {
-		return filmDao.generiArray();
-	}
-
-
-
 	
-
-
-
 	@Override
-	public Film getFilmByID(int id) {
+	public Film getFilmById(int id) {		
 		return filmDao.findById(id).get();
 	}
 
-
-
+	@Override
+	public Map<String, List<Film>> getFilmByGenere(List<Film> films) {
+        return films.stream()
+                .collect(Collectors.groupingBy(Film::getGenere));	
+	}
 
 	@Override
-	public List<Attore> getCastByFilmId(int id) {
-		
-		Film film = filmDao.findById(id).orElse(null);
-		return (film != null) ? film.getAttori() : null;
+	public List<Attore> getCast(int id) {
+		Film film = filmDao.findById(id).orElse(null);	
+		return film.getAttori();
 	}
 }

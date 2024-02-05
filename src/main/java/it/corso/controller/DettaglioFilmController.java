@@ -1,5 +1,4 @@
 package it.corso.controller;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,11 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.corso.model.Attore;
-import it.corso.model.Film;
 import it.corso.service.FilmService;
 
-// localhost:8080/dettagliofilm
 @Controller
 @RequestMapping("/dettagliofilm")
 public class DettaglioFilmController {
@@ -22,14 +18,11 @@ public class DettaglioFilmController {
 	
 	@GetMapping
 	public String getPage(
-			@RequestParam ("id") int id,
+			@RequestParam ("id")int id,
 			Model model) {
-		Film film = filmService.getFilmByID(id);
-		model.addAttribute("film", film);
 		
-		List<Attore> attore = filmService.getCastByFilmId(id);
-		model.addAttribute("attore", attore);
-	
+		model.addAttribute("film",filmService.getFilmById(id));
+		model.addAttribute("cast", filmService.getCast(id));
 		return "dettagliofilm";
 	}
 	
