@@ -1,19 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<title>Login utente</title>
-	</head>
-	<body>
-		<form method="post">
-			<input type="text" name="email" required>
-			<br>
-			<input type="password" name="password" required>
-			<br>
-			<input type="submit" value="Accedi">
-		</form>
-		
-		<a th:href="@{/registrazione}">Registrati</a>
-		<a th:href="@{/}" class="btn btn-secondary" th:text="'Torna Alla Home'"></a>
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Form regisrazione -->
+    <div class="container">
+        <div class="form-box">  
+
+            <form action="" name="formfill" id="form"> <!-- collegamento JavaScript-->
+                <h2>Accedi</h2>
+
+                <div class="form-row email-wrapper"> <!--da replica x ogni campo-->
+                    <div class="input-box">
+                        <i class='bx bx-envelope'></i>
+                        <input id="email" type="email" name="Email" placeholder="Email">
+                    </div>
+
+                    <div class="messageA"></div>
+                </div> 
+                    
+                <div class="form-row password-wrapper"> <!--replica-->
+                    <div class="input-box">
+                        <i class='bx bx-lock'></i>
+                        <input id="password"  type="password" name="Password" placeholder="Password">
+                    </div>
+                    
+                    <div class="messageB"></div>
+                </div>
+        
+                <div class="button">
+                    <input type="submit" value="LOGIN">
+                </div>
+
+                <div class="group">
+                    <!-- span per la password dimenticata qui? -->
+                    <span><a href="../casting/registrazione.html">Non hai un account? Registrati</a></span>
+                </div>
+
+            </form>
+            
+        </div>
+    </div>
+</body>
 </html>
