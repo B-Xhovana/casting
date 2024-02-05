@@ -23,10 +23,14 @@ body {
     min-height: 100vh;
 }
 
+#form input[type="date"] {
+    color: white;
+} 
+
 .form-box {
     position: relative;
     width: 400px;
-    height: 550px;
+    height: 50vw;
     border: 2px solid rgba(255,255,2550.5);
     border-radius: blur(15px);
     display: flex;
