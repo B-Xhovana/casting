@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../css/form.css">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
 </head>
 <body>
     <!-- Form regisrazione -->
     <div class="container">
         <div class="form-box">  
 
-            <form action="" name="formfill" id="form"> <!-- collegamento JavaScript-->
+            <form action="" th:object="${attore}" method="post" enctype="multipart/form-data" name="formfill" id="form"> <!-- collegamento JavaScript-->
                 <h2>Unisciti al Cast!</h2>
                 
                 <div class="form-row name-wrapper">
                     <div class="input-box">
                         <i class='bx bx-user'></i>
-                        <input id="name" type="text" name="Nome" placeholder="Nome">
+                        <input id="name" type="text" name="nome" th:field="*{nome}" placeholder="Nome">
                     </div>
             
                     <div class="messageA"></div>
@@ -27,7 +27,7 @@
                 <div class="form-row surname-wrapper">
                     <div class="input-box">
                         <i class='bx bx-user'></i>
-                        <input id="surname" type="text" name="Cognome" placeholder="Cognome">
+                        <input id="surname" type="text" name="cognome" th:field="*{cognome}" placeholder="Cognome">
                     </div>
             
                     <div class="messageB"></div>
@@ -35,7 +35,7 @@
 
                 <div class="form-row dob-wrapper">
                     <div class="input-box">
-                        <input id="dob" type="date" name="DataDiNascita" placeholder="Data di Nascita">
+                        <input id="dob" type="date" name="dataNascita" th:field="*{dataNascita}" placeholder="Data di Nascita">
                     </div>
             
                     <div class="messageF"></div>
@@ -44,7 +44,7 @@
                 <div class="form-row email-wrapper"> <!--da replica x ogni campo-->
                     <div class="input-box">
                         <i class='bx bx-envelope'></i>
-                        <input id="email" type="email" name="Email" placeholder="Email">
+                        <input id="email" type="email" name="email" th:field="*{email}" placeholder="Email">
                     </div>
 
                     <div class="messageA"></div>
@@ -53,7 +53,7 @@
                 <div class="form-row password-wrapper"> <!--replica-->
                     <div class="input-box">
                         <i class='bx bx-lock'></i>
-                        <input id="password"  type="password" name="Password" placeholder="Password">
+                        <input id="password"  type="password" name="password" th:field="*{password}" placeholder="Password">
                     </div>
                     
                     <div class="messageB"></div>
@@ -62,7 +62,7 @@
                 <div class="form-row confermaPassword-wrapper"> <!--replica-->
                     <div class="input-box">
                         <i class='bx bx-lock'></i>
-                        <input id="confermaPassword"  type="password" name="confermaPassword" placeholder="Confirma Password">
+                        <input id="confermaPassword"  type="password" name="confermaPassword" placeholder="Conferma Password">
                     </div>
 
                     <div class="messageC"></div>
@@ -74,7 +74,7 @@
             
                 <div class="group">
                     <!-- span per la password dimenticata qui? -->
-                    <span><a href="/casting/login.html">Hai già un account? Accedi</a></span>
+                    <span><a th:href="@{/login}">Hai già un account? Accedi</a></span>
                 </div>
 
             </form>
