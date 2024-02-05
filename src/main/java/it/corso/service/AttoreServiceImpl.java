@@ -31,7 +31,7 @@ public class AttoreServiceImpl implements AttoreService {
 		if(ritratto!=null && !ritratto.isEmpty()) {
 			try {
 				// per trascendere dall estensione dell img
-				String estensione = ritratto.getContentType(); // questo mi da image/png o jpg che sia
+				String estensione = ritratto.getContentType(); 
 				
 				attore.setRitratto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(ritratto.getBytes()));
 			} catch (Exception e) {
@@ -57,6 +57,7 @@ public class AttoreServiceImpl implements AttoreService {
 	@Override
 	public boolean controlloLogin(String email, String password, HttpSession session) {
 		Attore attore = attoreDao.findByEmailAndPassword(email,password);
+		
 		if (email.equalsIgnoreCase(attore.getEmail()) && password.equals(attore.getPassword())) {
 			attore.setEmail(email);
 			attore.setPassword(password);
@@ -68,6 +69,7 @@ public class AttoreServiceImpl implements AttoreService {
 
 	@Override
 	public Attore checkAttore(String email) {
+		
 		Attore attore = attoreDao.findByEmail(email);
 		
 			return attore;
@@ -87,45 +89,46 @@ public class AttoreServiceImpl implements AttoreService {
 	}
 	
 	@Override
-	public void cancellaAttore(Attore attore) {
+	public void cancellaAccount(Attore attore) {
 		attoreDao.delete(attore);
 
 	}
 	
 	@Override
-    public List<Film> getFilmByAttoreId(int attoreId) {
-        Attore attore = attoreDao.findById(attoreId).orElse(null);
-        return (attore != null) ? attore.getFilms() : null;
-    }
+	public List<Film> getFilmografia(int id) {
+		Attore attore = attoreDao.findById(id).orElse(null);
+		return attore.getFilms();
+	}
 	
 	
 	@Override
-	public void modificaFoto(HttpSession session, MultipartFile ritratto, MultipartFile foto) 
-	{
-		Attore attore = new Attore();
-		
-		if(ritratto!=null && !ritratto.isEmpty()) {
+	public void newRitratto(int id, MultipartFile newImg, HttpSession session) {
+		Attore attore = attoreDao.findById(id).get();
 			try {
 				
-				String estensione = ritratto.getContentType(); 
+				String estensione = newImg.getContentType(); 
 				
-				attore.setRitratto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(ritratto.getBytes()));
+				attore.setRitratto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(newImg.getBytes()));
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
 			}
-		}
-		
-		if(foto!=null && !foto.isEmpty()) {
-			try {
-				
-				String estensione = foto.getContentType(); 
-				
-				attore.setFoto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(foto.getBytes()));
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		}
+		session.setAttribute("attore", attore);
 		attoreDao.save(attore);
+	}
+
+	@Override
+	public void newFoto(int id, MultipartFile newImg, HttpSession session) {
+		Attore attore = attoreDao.findById(id).get();
+		try {
+			
+			String estensione = newImg.getContentType();
+			
+			attore.setFoto("data:"+ estensione + ";base64," + Base64.getEncoder().encodeToString(newImg.getBytes()));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	session.setAttribute("attore", attore);
+	attoreDao.save(attore);
 		
 	}
 

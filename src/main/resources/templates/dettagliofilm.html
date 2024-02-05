@@ -6,6 +6,7 @@
 	</head>
 	<body>
 		<h1>Scheda film</h1>
+		<a th:href="@{/}">Torna alla Home</a>
 		<br>
 		<p>ID: <span th:text="${film.id}"></span></p>
         <p>Titolo: <span th:text="${film.titolo}"></span></p>
@@ -16,12 +17,13 @@
         <p>Genere: <span th:text="${film.genere}"></span></p>
         <p>Trailer: <span th:text="${film.trailer}"></span></p> 
         <a th:if="${film.trailer != null}" th:href="${film.trailer}">Guarda il trailer</a>
-        <a th:text="${film.titolo}"></a>
+        
         <h5>Cast</h5>
-        <ul>
-            <li th:each="attore : ${cast}">
-                <a th:href="@{/dettaglioattore(id=${attore.id})}" th:text="${attore.nome}+' '+${attore.cognome}">Vai a scheda attore</a>
-            </li>
-        </ul>
+	    <ul th:each="a : ${cast}">
+	    	<li>
+	    		<a th:href="@{/dettaglioattore(id=${a.id})}" th:text="${a.nome} + ' ' + ${a.cognome}"></a>
+	    	</li>
+	    </ul>
+
 	</body>
 </html>

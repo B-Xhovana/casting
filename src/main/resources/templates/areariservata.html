@@ -5,32 +5,40 @@
 		<title>Area riservata</title>
 	</head>
 	<body>
-		<h1 th:text="'Ciao ' + ${attore.nome}+ '!' " ></h1>
+		<h1 th:text="'Ciao ' + ${attore.nome} + '!' " ></h1>
 		<h2>Questa è la tua area riservata</h2>
 		<a th:href="@{/}">Torna alla Home</a>
 		<h3 th:text="${attore.nome} + ' questi sono i tuoi dati: '"></h3>
+		<a th:href="@{areariservata/logout}">Log Out</a>
 		<ul>
 			<li th:text="'Nome: ' + ${attore.nome}"></li>
 			<li th:text="'Cognome: ' + ${attore.cognome}"></li>
 			<li th:text="'Data di Nascita: ' + ${attore.dataNascita}"></li>
 			<li th:text="'Email: ' + ${attore.email}"></li>
 		</ul>
+		
 		<h3>Questa è la foto ritratto che hai caricato</h3>
 		<img th:src="${attore.ritratto}">
 		<br>
+		
 		<form th:object="${attore}" method="post" enctype="multipart/form-data">
-		<label for="ritratto" th:text="'Primo piano:'"></label>
-    	<input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}">
-    	<input type="submit" class="btn btn-primary" value="salva">
-    	</form>
+			<label for="ritratto" th:text="'Primo piano:'"></label>
+		    <input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}">
+			<input type="submit" class="btn btn-primary" value="Carica immagine">
+		</form>
+    	
 		<h3>Questa è la foto a figura intera che hai caricato</h3>
 		<img th:src="${attore.foto}">
-		<a th:href="@{areariservata/cancellaattore(id=${attore.id})}"
-			class="btn btn-danger btn-sm" th:text="'Elimina la tua area riservata'"></a>
-		<form th:object="${attore}" method="post" enctype="multipart/form-data">
+		
 		<label for="foto" th:text="'Foto intera:'"></label>
-		<input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}">
-		<input type="submit" class="btn btn-primary" value="salva">
+		<form th:object="${attore}" method="post" action="/areariservata/foto" enctype="multipart/form-data">
+			<label for="foto" th:text="'Primo piano:'"></label>
+		    <input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}">
+			<input type="submit" class="btn btn-primary" value="Carica immagine">
 		</form>
+		
+		<br>
+		<a th:href="@{areariservata/cancellaaccount(id=${attore.id})}"
+			class="btn btn-danger btn-sm" th:text="'Elimina Account'"></a>
 	</body>
 </html>

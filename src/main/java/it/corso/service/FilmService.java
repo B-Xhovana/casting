@@ -11,12 +11,12 @@ public interface FilmService {
 	List<Film> getFilms();
 	
 	
-	Film getFilmByID(int id);
+	Film getFilmById(int id);
 	//Medoto con stream per ottenere il catalogo dei film divisi per genenere in home page
 	Map<String, List<Film>> getFilmByGenere(List<Film> films);
 	
 	
-	List<Attore> getCastByFilmId(int id);
+	List<Attore> getCast(int id);
 	
 	
 	
