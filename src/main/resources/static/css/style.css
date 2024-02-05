@@ -102,6 +102,6 @@ button:hover {
 }
   
 .item img {
-    width: 100%;
+    max-width: 275px;
     height: auto;
 }
