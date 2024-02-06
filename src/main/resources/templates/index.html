@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/carousel.css">
+        
         <link rel="stylesheet" href="/css/footer.css">
         
     </head>
@@ -22,10 +22,10 @@
                 </ul>   
             </nav>
             
-            <div class="search-bar">
+         <!--   <div class="search-bar">
                 <input type="text" id="movie-search" placeholder="Cerca film...">
                 <button onclick="searchMovie()">Cerca</button>
-            </div>
+            </div>-->  
             
             <div class="cta" th:if="${attorelog} == null">
 			    <a th:href="@{/login}"><button>Accedi</button></a>
@@ -34,52 +34,26 @@
 			 <div th:if="${attorelog} != null">
 			    <a class="cta" th:href="@{/areariservata}"><button>Area riservata</button></a>
 		    </div>
-            <a class="cta" href="/casting/form.html"><button>Registrati!</button></a>
+           
             
         </header>
         
         <main>
            
-            <!-- ITERAZIONE SINGOLI FILM 
-            
-            <div th:each="film : ${genereFilms.value}" class="item">
-            <a th:href="@{/dettagliofilm(id=${film.id})}">
-                <img th:src="${film.locandina}" th:alt="${film.titolo}"/>
-            </a>
-            </div> -->
-            
-            <h3>GENERE</h3>
+           
+            <div class="genere-container" th:each="genereFilms : ${filmPerGenere}">
+            <h3 th:text="${genereFilms.key}"></h3>
             <div class="film-cards-container">
+            <div th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
                 <div class="card">
-                    <img src="/img/locandina1.jpg" alt="Film">
-                    <h3>Titolo Film</h3>
-                    <p>Anno pubblicazione</p>
+                    <img th:src="${film.locandina}" th:alt="${film.titolo}">
+                    <h3 th:text="${film.titolo}"></h3>
+                    <a th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
                 </div>
 
-                <div class="card">
-                    <img src="/img/locandina1.jpg" alt="Film">
-                    <h3>Titolo Film</h3>
-                    <p>Anno pubblicazione</p>
                 </div>
-
-                <div class="card">
-                    <img src="/img/locandina1.jpg" alt="Film">
-                    <h3>Titolo Film</h3>
-                    <p>Anno pubblicazione</p>
                 </div>
-
-                <div class="card">
-                    <img src="/img/locandina1.jpg" alt="Film">
-                    <h3>Titolo Film</h3>
-                    <p>Anno pubblicazione</p>
                 </div>
-
-                <div class="card">
-                    <img src="/img/locandina1.jpg" alt="Film">
-                    <h3>Titolo Film</h3>
-                    <p>Anno pubblicazione</p>
-                </div>
-            </div>
                            
                             
 
@@ -87,7 +61,7 @@
         </main>
 
         
-        <footer>
+        
             <!-- !!! FOOTER !!!-->
            <footer class="footer">
                 <div class="footer__addr">
