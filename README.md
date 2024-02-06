@@ -26,18 +26,20 @@ Database: MySQL
 
 
 
-Copyright [2024] [Agnese Burla, Viviana Mancini, Veronica Zaccardi, Xhovana Barjamaj,Deborah Del Gaudio, Hajar Errafi,Stefania Pinna]
+Copyright (2024) (Agnese Burla, Viviana Mancini, Veronica Zaccardi, Xhovana Barjamaj,Deborah Del Gaudio, Hajar Errafi,Stefania Pinna)
 Quest’opera è concessa in licenza con una Licenza Creative Commons Attribuzione - Non commerciale.
 
 
-Autori:
-Agnese Burla (burlaagnese@gmail.com)
-Viviana Mancini (vivianaman378@gmail.com)
-Veronica Zaccardi (veronica.zaccardi93@gmail.com)
-Deborah Del Gaudio (deb.delgaudio@gmail.com)
-Xhovana Barjamaj (barjamaj.xvn@gmail.com)
-Hajar Errafi (errafihajjora@gmail.com)
-Stefania Pinna (stetgz@gmail.com)
+Agnese Burla
+Viviana Mancini
+Veronica Zaccardi
+Xhovana Barjamaj
+Deborah Del Gaudio
+Hajar Errafi
+Stefania Pinna
 
+[^1]
+
+[^1]: Queste persone hanno contribuito al progetto con il loro lavoro e impegno.
 
 
