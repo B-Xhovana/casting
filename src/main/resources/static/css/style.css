@@ -234,7 +234,3 @@ footer {
     gap: 3rem;
     font-size: 1.4rem;
 }
-.cta {
-	 position: relative;
-	z-index:9999;
-}
