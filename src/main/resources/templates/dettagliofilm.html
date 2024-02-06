@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,31 @@
 </head>
 <body>
     <div class="container">
-        <div class="actor-image">
-            <img src="locandina.jpg" alt="Actor Image">
-
             <div class="button-container">
-                <div class="button">Vedi ruoli</div>
-                <div class="button">Homepage</div>
-            </div>
+	            <form th:action="@{/}" method="get">
+	                <button type="submit" class="button">Torna alla Home</button>
+	            </form>
+        	</div>
         </div>
         <div class="actor-details-box">
+        	<h1>Scheda film</h1>
             <div class="actor-details">
-                <h1>TITOLO FILM</h1>
-                <p><strong>Data uscita:</strong> 1 Gennaio 1993</p>
-                <p><strong>Regia:</strong></p>
-                <p><strong>Trama:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget urna vel libero rhoncus consequat. Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis sint, minus nulla veniam deserunt hic blanditiis, quos placeat ad tempora eveniet tenetur deleniti, 
-                    esse harum accusantium maxime iusto quaerat. Modi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta non alias magni blanditiis incidunt, maiores debitis fuga ipsam laboriosam accusantium corrupti mollitia eius neque harum voluptatibus sed voluptate aliquid atque. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque, laborum. Alias quod eos dicta nostrum ducimus, natus consequatur quidem deserunt vel exercitationem asperiores doloribus, eveniet vitae quos eaque sit praesentium!</p>
-            </div>
+                <p><strong>Titolo: </strong><span th:text="${film.titolo}"></span></p>
+                <p><strong>Locandina: </strong></p> 
+	        <img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
+	        <p><strong>Trama: </strong><span th:text="${film.trama}"></span></p>
+	        <p><strong>Data di uscita: </strong><span th:text="${film.dataUscita}"></span></p>
+	        <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
+	        <p><strong>Trailer: </strong></p> 
+			<iframe width="560" height="315" th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>
+
+	        <h5><strong>Cast</strong></h5>
+		    <ul th:each="a : ${cast}">
+		    	<li>
+		    		<a th:href="@{/dettaglioattore(id=${a.id})}" th:text="${a.nome} + ' ' + ${a.cognome}"></a>
+		    	</li>
+		    </ul>
+		    </div> 
         </div>
-    </div>
 </body>
 </html>
