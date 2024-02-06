@@ -48,7 +48,7 @@
                 <div class="card">
                     <img th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
-                    <a th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
+                    <a class="cta" th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
                 </div>
 
                 </div>

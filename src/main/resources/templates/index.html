@@ -29,19 +29,16 @@
 			    <a th:href="@{/login}"><button>Accedi</button></a>
 			 </div >
 			 
-			 <div th:if="${attorelog} != null">
-			    <a class="cta" th:href="@{/areariservata}"><button>Area riservata</button></a>
+			 <div class="cta" th:if="${attorelog} != null">
+			    <a  th:href="@{/areariservata}"><button>Area riservata</button></a>
 		    </div>   
-            
-            
-           
             
         </header>
         
         <main>
            
            
-            <div class="genere-container" th:each="genereFilms : ${filmPerGenere}">
+            <div class="cta" th:each="genereFilms : ${filmPerGenere}">
             <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}">           
             </a>
             <div class="film-cards-container">
@@ -49,7 +46,9 @@
                 <div class="card">
                     <img th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
+                    <div class="cta">
                     <a th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
+                    </div>
                 </div>
 
                 </div>
