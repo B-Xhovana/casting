@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Dettaglio attore</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/dettaglioattore.css">
+        <!-- link css -->
+        <!-- link Icone -->
+        <!-- link  Incone -->
+    </head>
+    <body>
+ 
+        <div class="container">
+            <div class="box">
+          		<h1 th:text="${attore.nome + ' ' + attore.cognome}"></h1>
+          		<br>
+          	<section>
+                <h2>Dati Personali</h2>
+                <p><strong>Nome:</strong> <span th:text="${attore.nome}"></span></p>
+                <p><strong>Cognome:</strong> <span th:text="${attore.cognome}"></span></p>
+                <p><strong>Data di Nascita:</strong> <span th:text="${attore.dataNascita}"></span></p>
+                <p><strong>Email:</strong> <span th:text="${attore.email}"></span></p>
+            </section>
+            
+            <section>
+                <h2>Foto</h2>
+                <p><strong>Ritratto:</strong></p>
+                <img th:if="${attore.ritratto != null}" th:src="@{${attore.ritratto}}" alt="Ritratto di ${attore.nome}">
+                <img th:if="${attore.ritratto == null}" th:src="@{img/No_immagine_disponibile.svg.png}" alt="Immagine non disponibile">
+
+                <p><strong>Foto Intera:</strong></p>
+                <img th:if="${attore.foto != null}" th:src="@{${attore.foto}}" alt="Foto intera di ${attore.nome}">
+                <img th:if="${attore.foto == null}" th:src="@{img/No_immagine_disponibile.svg.png}" alt="Immagine non disponibile">
+            </section>
+            
+             <section>
+                <h2>Filmografia</h2>
+                <ul th:each="f : ${filmografia}">
+                    <li>
+                        <a th:href="@{/dettagliofilm(id=${f.id})}" th:text="${f.titolo}"></a>
+                    </li>
+                </ul>
+            </section>
+				
+
+            </div>
+            
+        </div>
+		<form th:action="@{/}" method="get">
+    		<button type="submit">Torna alla Home</button>
+		</form>
+        <script src=""></script>
+    </body>
+</html>

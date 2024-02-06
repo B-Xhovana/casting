@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/carousel.css">
+        <link rel="stylesheet" href="/css/footer.css">
         
     </head>
     
@@ -20,207 +21,152 @@
                     <!-- eventuali sezioni da aggiungere-->
                 </ul>   
             </nav>
-            <a class="cta" href="/casting/registrazione.html"><button>Registrati!</button></a>
+            
+            <div class="search-bar">
+                <input type="text" id="movie-search" placeholder="Cerca film...">
+                <button onclick="searchMovie()">Cerca</button>
+            </div>
+            
+            <div class="cta" th:if="${attorelog} == null">
+			    <a th:href="@{/login}"><button>Accedi</button></a>
+			 </div >
+			 
+			 <div th:if="${attorelog} != null">
+			    <a class="cta" th:href="@{/areariservata}"><button>Area riservata</button></a>
+		    </div>
+            <a class="cta" href="/casting/form.html"><button>Registrati!</button></a>
+            
         </header>
         
         <main>
-            <div class="genre-container">
+           
+            <!-- ITERAZIONE SINGOLI FILM 
             
-                <!-- INIZIO CAROSELLO -->
-                <div class="carousel-container">
-
-                    <div class="titleGenere">
-                        <h3>GENERE</h3>
-                    </div>
-
-                    <div class="wrapperCarousel">
-
-                        <!-- GESTIONE SEZIONE 1 -->
-                        <section id="section1">
-
-                            <a href="#section3" class="arrow__btn left-arrow">◄</a>
-                            <div class="item">
-                            <a href="#">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </a>
-                            </div>
-
-
-                            <div class="item">
-                            <a href="#">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </a>
-                            </div>
-
-
-                            <div class="item">
-                            <a href="#">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </a>
-                            </div>
-
-
-                            <div class="item">
-                            <a href="#">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </a>
-                            </div>
-
-
-                            <div class="item">
-                            <a href="#">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </a>
-                            </div>
-
-                            
-                            <a href="#section2" class="arrow__btn right-arrow">►</a>
-                        </section>
-
-
-                        <!-- GESTIONE SEZIONE 2 -->
-                        <section id="section2">
-
-                            <a href="#section1" class="arrow__btn left-arrow">◄</a>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <a href="#section3" class="arrow__btn right-arrow">►</a>
-                        </section>
-
-
-                        <!-- GESTIONE SEZIONE 3-->
-                        <section id="section3">
-
-                            <a href="#section2" class="arrow__btn left-arrow">◄</a>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.jpg" alt="Describe Image">
-                            </div>
-
-                            <div class="item">
-                                <img src="/img/locandina.png" alt="Describe Image">
-                            </div>
-
-
-                            <a href="#section1" class="arrow__btn right-arrow">►</a>
-                        </section>
-                    </div>
+            <div th:each="film : ${genereFilms.value}" class="item">
+            <a th:href="@{/dettagliofilm(id=${film.id})}">
+                <img th:src="${film.locandina}" th:alt="${film.titolo}"/>
+            </a>
+            </div> -->
+            
+            <h3>GENERE</h3>
+            <div class="film-cards-container">
+                <div class="card">
+                    <img src="/img/locandina1.jpg" alt="Film">
+                    <h3>Titolo Film</h3>
+                    <p>Anno pubblicazione</p>
                 </div>
-                <!-- FINE CAROSELLO -->
 
+                <div class="card">
+                    <img src="/img/locandina1.jpg" alt="Film">
+                    <h3>Titolo Film</h3>
+                    <p>Anno pubblicazione</p>
+                </div>
+
+                <div class="card">
+                    <img src="/img/locandina1.jpg" alt="Film">
+                    <h3>Titolo Film</h3>
+                    <p>Anno pubblicazione</p>
+                </div>
+
+                <div class="card">
+                    <img src="/img/locandina1.jpg" alt="Film">
+                    <h3>Titolo Film</h3>
+                    <p>Anno pubblicazione</p>
+                </div>
+
+                <div class="card">
+                    <img src="/img/locandina1.jpg" alt="Film">
+                    <h3>Titolo Film</h3>
+                    <p>Anno pubblicazione</p>
+                </div>
             </div>
+                           
+                            
+
+           
         </main>
 
         
         <footer>
             <!-- !!! FOOTER !!!-->
-            <main-footer class="footer">
-                <div class="containerF">
-
-                    <div class="footer-main">
-                        <div class="top-footer">
-
-                            <div class="footer-left">
-                                <div class="footer__flixtv">
-                                    <img class="logo" src="../HomePage/IMG/logo2.png" alt="logo" />
-                                </div>
-
-                                <div class="footer__social">
-                                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a href="#"><i class="fab fa-twitter"></i></a>
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                    <a href="#"><i class="fab fa-youtube"></i></a>
-                                    <a href="#"><i class="fab fa-tiktok"></i></a>
-                                </div>
-                            </div>
-
-                        <div class="footer-right">
-                            <div class="footer-col">
-                                <h6 class="footer__title">FlixTV</h6>
-                                <div class="footer__nav">
-                                    <a href="#">About us</a>
-                                    <a href="#">My profile</a>
-                                    <a href="#">Pricing plans</a>
-                                    <a href="#">Contact</a>
-                                </div>
-                            </div>
-
-                            <div class="footer-col">
-                                <h6 class="footer__title">Browse</h6>
-                                <div class="footer__group">
-                                    <div class="footer__nav">
-                                        <a href="#">Live TV</a>
-                                        <a href="#">Live news</a>
-                                        <a href="#">Live Sports</a>
-                                        <a href="#">Streaming Library</a>
-                                    </div>
-
-                                    <div class="footer__nav">
-                                        <a href="#">TV Show</a>
-                                        <a href="#">Movies</a>
-                                        <a href="#">Kids</a>
-                                        <a href="#">Collections</a>
-                                    </div>
-                                </div>
-
-                            </div>
+           <footer class="footer">
+                <div class="footer__addr">
+                    <img class="logo" src="/img/LOGO.update.png" alt="logo">
+                      
+                    <h2>Contatti</h2>
+                  
+                    <address>
+                    1010 Da Qualche Parte Nel Mondo 100100-11101<br>
                         
-                            <div class="footer-col">
-                            <h6 class="footer__title">Help</h6>
-                                <div class="footer__nav">
-                                    <a href="#">Account & Billing</a>
-                                    <a href="#">Plans & Pricing</a>
-                                    <a href="#">Supported devices</a>
-                                    <a href="#">Accessibility</a>
-                                </div>
-                            </div>
-                      </div>
-
-                    </div>
-                        <br>
-                        <br>
-                      <div class="footer__links">
-                        <a href="#">Privacy policy</a>
-                        <a href="#">Terms and conditions</a>
-                      </div>             
-                  </div>
-
+                    <a class="footer__btn" href="mailto:esempio@gmail.com">Contattaci!</a>
+                    </address>
                 </div>
-            </main-footer>
-        </footer>
+                
+                <ul class="footer__nav">
+                    <li class="nav__item">
+                        <h2 class="nav__title">Media</h2>
+              
+                        <ul class="nav__ul">
+                            <li>
+                                <a href="#">Online</a>
+                            </li>
+                
+                            <li>
+                                <a href="#">Stampa</a>
+                            </li>
+                            
+                            <li>
+                                <a href="#">Alternative Ads</a>
+                            </li>
+                        </ul>
+                  </li>
+                  
+                  <li class="nav__item nav__item--extra">
+                    <h2 class="nav__title">IL TEAM</h2>
+                    
+                    <ul class="nav__ul nav__ul--extra">
+                        <li>
+                            <a href="#">Viviana Mancini</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Veronica Zaccardi</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Hajar Errafi</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Xhovana Barjamaj</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Stefania Pinna</a>
+                        </li>
+                        
+                        <li>
+                            <a href="#">Deborah Del Gaudio</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Agnese Burla</a>
+                        </li>
+                    </ul>
+                    </li>
+                  
+                  
+                </ul>
+                
+                <div class="legal">
+                    <p>Un giorno del 2024. Tutti i diritti riservati.</p>
+                  
+                    <div class="legal__links">
+                        <span>Made with <span class="heart">♥</span> remotely from Anywhere</span>
+                    </div>
+                </div>
+            </footer>
         
-        <script src="js/index.js"></script>
+        <script src="/js/index.js"></script>
     </body>
 </html>
