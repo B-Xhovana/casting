@@ -90,7 +90,7 @@ public class Film
 		this.dataUscita = dataUscita;
 	}
 	public String getGenere() {
-		return genere;
+		return genere.toUpperCase();
 	}
 	public void setGenere(String genere) {
 		this.genere = genere;
