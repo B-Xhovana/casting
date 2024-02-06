@@ -17,38 +17,38 @@
         <header>
             <img class="logo" src="/img/LOGO.update.png" alt="logo">
             <nav class="nav_links">
-               
-		    
+                <ul>
+                    <!-- eventuali sezioni da aggiungere-->
+                </ul>   
             </nav>
             
          <!--   <div class="search-bar">
                 <input type="text" id="movie-search" placeholder="Cerca film...">
                 <button onclick="searchMovie()">Cerca</button>
             </div>-->  
+            
             <div class="cta" th:if="${attorelog} == null">
 			    <a th:href="@{/login}"><button>Accedi</button></a>
 			 </div >
 			 
-			 <div class="cta" th:if="${attorelog} != null">
-			    <a  th:href="@{/areariservata}"><button>Area riservata</button></a>
-		    </div>   
+			 <div th:if="${attorelog} != null">
+			    <a class="cta" th:href="@{/areariservata}"><button>Area riservata</button></a>
+		    </div>
+           
             
         </header>
         
         <main>
            
            
-            <div class="cta" th:each="genereFilms : ${filmPerGenere}">
-            <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}">           
-            </a>
+            <div class="genere-container">
+            <h3 th:text="${genere}"></h3>
             <div class="film-cards-container">
-            <div th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
+            <div th:each="film : ${filmPerGenere}" >
                 <div class="card">
                     <img th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
-                    <div class="cta">
-                    <a th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
-                    </div>
+                    <a class="cta" th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
                 </div>
 
                 </div>

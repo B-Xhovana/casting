@@ -10,7 +10,7 @@ function fixNav() {
     }
 }
 
-//GESTIONE BARRA DI RICERCA
+/*//GESTIONE BARRA DI RICERCA
 function cercaFilm() {
     
     var searchQuery = document.getElementById("movie-search").value.toLowerCase();
@@ -27,5 +27,5 @@ function cercaFilm() {
             card.style.display = 'none';
         }
     });
-}
+}*/
 

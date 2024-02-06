@@ -1,5 +1,6 @@
 package it.corso.service;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -28,8 +29,13 @@ public class FilmServiceImpl implements FilmService {
 
 	@Override
 	public Map<String, List<Film>> getFilmByGenere(List<Film> films) {
-        return films.stream()
-                .collect(Collectors.groupingBy(Film::getGenere));	
+		//ordino i film per genere
+		Map<String, List<Film>> filmPerGenere = films.stream()
+          .collect(Collectors.groupingBy(Film::getGenere));	
+     	//ordino i film, divisi per genere, per data di uscita in ordine descrescente
+		filmPerGenere.forEach((genere, filmList) ->
+        filmList.sort(Comparator.comparing(Film::getDataUscita).reversed()));
+     	return filmPerGenere;
 	}
 
 	@Override
