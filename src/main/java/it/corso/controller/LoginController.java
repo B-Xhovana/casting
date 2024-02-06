@@ -33,7 +33,7 @@ public class LoginController {
 							  HttpSession session,
 							  Model model) {
 		
-		if (session.getAttribute("attore")==null || !attoreService.controlloLogin(email,password,session)) {
+		if (!attoreService.controlloLogin(email,password,session)) {
 			return "redirect:/login";
 		}
 		return "redirect:/areariservata";

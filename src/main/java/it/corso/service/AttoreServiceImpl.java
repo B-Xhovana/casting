@@ -57,13 +57,15 @@ public class AttoreServiceImpl implements AttoreService {
 	@Override
 	public boolean controlloLogin(String email, String password, HttpSession session) {
 		Attore attore = attoreDao.findByEmailAndPassword(email,password);
-		
-		if (email.equalsIgnoreCase(attore.getEmail()) && password.equals(attore.getPassword())) {
-			attore.setEmail(email);
-			attore.setPassword(password);
-			session.setAttribute("attore", attore);
-			return true;
+		if (attore!=null) {
+			if (email.equalsIgnoreCase(attore.getEmail()) && password.equals(attore.getPassword())) {
+				attore.setEmail(email);
+				attore.setPassword(password);
+				session.setAttribute("attore", attore);
+				return true;
+			}
 		}
+		
 		return false;
 	}
 
