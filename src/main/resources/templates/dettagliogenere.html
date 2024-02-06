@@ -26,7 +26,7 @@
                 <input type="text" id="movie-search" placeholder="Cerca film...">
                 <button onclick="searchMovie()">Cerca</button>
             </div>-->  
-            
+            <a class="cta" th:href="@{/}"><button>Home</button></a>
             <div class="cta" th:if="${attorelog} == null">
 			    <a th:href="@{/login}"><button>Accedi</button></a>
 			 </div >
@@ -34,6 +34,7 @@
 			 <div th:if="${attorelog} != null">
 			    <a class="cta" th:href="@{/areariservata}"><button>Area riservata</button></a>
 		    </div>
+		  
            
             
         </header>
