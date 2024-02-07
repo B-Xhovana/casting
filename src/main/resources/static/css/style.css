@@ -128,3 +128,23 @@ p {
     margin: 0;
     display: flex;
 }
+
+/*NASCONDI PULSANTE TORNA SU*/
+.torna-su-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color:  #5f6162;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.torna-su-btn:hover {
+    background-color: #0056b3;
+}

@@ -19,7 +19,7 @@
             <nav class="nav_links">
             <div class="generi-container" >
             	<ul th:each="genereFilms : ${filmPerGenere}">
-            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+            	<li class="cta"><a th:href="@{'#' + ${genereFilms.key}}" th:text="${genereFilms.key}"></a></li>
             	</ul>
             </div>
                
@@ -41,6 +41,7 @@
         </header>
         
         <main>
+        <button id="tornaSuBtn" class="torna-su-btn" onclick="scrollToTop()">Torna su ↑</button>
  <!-- ULTIMI ATTORI INSERITI -->
 			 <h3>ULTIMI ATTORI ISCRITTI</h3>
 			 <div class="film-cards-container">
@@ -59,7 +60,7 @@
            
  <!-- INIZIO ELENCO FILM PER GENERE -->   
             <div class="cta" th:each="genereFilms : ${filmPerGenere}">
-            <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}">           
+            <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}" th:id="${genereFilms.key}">           
             </a>
             <div class="film-cards-container">
             <div th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
