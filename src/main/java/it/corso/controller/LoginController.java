@@ -19,11 +19,17 @@ public class LoginController {
 	private AttoreService attoreService;
 	
 	@GetMapping
-	public String getPage(HttpSession session) {
+	public String getPage(
+			@RequestParam (name="err", required=false) String logError,
+			HttpSession session,
+			Model model
+			) 
+	{
 		
 		if (session.getAttribute("attore")!=null) {
 			return"redirect:/areariservata";
 		}
+		model.addAttribute("logError", logError!=null);
 		return "login";
 	}
 	
@@ -34,7 +40,7 @@ public class LoginController {
 							  Model model) {
 		
 		if (!attoreService.controlloLogin(email,password,session)) {
-			return "redirect:/login";
+			return "redirect:/login?err";
 		}
 		return "redirect:/areariservata";
 	}
