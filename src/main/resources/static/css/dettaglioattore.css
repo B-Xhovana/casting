@@ -54,7 +54,8 @@ h2 {
 
 .portrait-box,
 .details-box {
-    width: 50%; /* Impostato a metà della larghezza del contenitore */
+	width: 500px;
+   	height: 500px; 
     padding: 20px;
     text-align: center;
     background-color: rgba(237, 233, 233, 0.9);
@@ -66,7 +67,7 @@ h2 {
 }
 
 .details-box {
-	text-align: left;
+	text-align: justify;
 }
 
 ul {
@@ -86,15 +87,18 @@ ul li {
 
 ul li a {
     color: #000; 
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .fotoritratto img {
-    max-width: 100%; 
-    height: 100%;
+   	width: calc(100% - 40px);
+   	height: 450px;
+    padding-top: 5px; /* Applica 10 pixel di padding sopra la box */
+    padding-right: 20px; /* Applica 20 pixel di padding a destra della box */
+    padding-bottom: 20px; /* Applica 10 pixel di padding sotto la box */
+    padding-left: 20px; /* Applica 20 pixel di padding a sinistra della box */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    object-fit: contain; /* Imposta l'immagine per adattarsi proporzionalmente al contenitore mantenendo l'aspetto */
+    object-fit: contain;
 }
 
 .totalBody img {
@@ -120,6 +124,7 @@ ul li a {
     font-family: monospace;
     border: none; /* Rimuove la linea di contorno */
 } 
+
 .button-container {
     display: flex;
     flex-direction: column;
@@ -128,11 +133,14 @@ ul li a {
 }
 
 .full-image {
-   	width: 803px;
-    padding: 20px;
-    text-align: center;
+   	width: calc(100% - 40px);
+    padding-top: 10px; /* Applica 10 pixel di padding sopra la box */
+    padding-right: 20px; /* Applica 20 pixel di padding a destra della box */
+    padding-bottom: 10px; /* Applica 10 pixel di padding sotto la box */
+    padding-left: 20px; /* Applica 20 pixel di padding a sinistra della box */
+    display: flex;
+   	justify-content: center;
     background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
-    margin-bottom: 20px;
 }
 
