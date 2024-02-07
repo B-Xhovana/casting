@@ -22,31 +22,44 @@ public class FormController {
 	private AttoreService attoreService;
 	
 	@GetMapping
-	public String getPage(Model model) {
+	public String getPage(
+			@RequestParam (name="err", required=false) String emailErr,
+			@RequestParam (name="etaerr", required = false)String etaErr,
+			Model model
+			) 
+	{
 		Attore attore = new Attore();
 		model.addAttribute("attore", attore);
+		model.addAttribute("emailErr", emailErr!=null);
+		model.addAttribute("etaErr", etaErr!=null);
 		return "form";
 	}
 	
 	@PostMapping
 	public String formManager(
-			//@ModelAttribute Attore attore,
 			@RequestParam ("nome") String nome,
 			@RequestParam("cognome") String cognome,
 			@RequestParam("dataNascita") LocalDate dataNascita,
 			@RequestParam("email") String email,
 			@RequestParam("password") String password,
 		    @RequestParam(name="ritratto",required = false) MultipartFile ritratto,
-		    @RequestParam(name="foto",required = false) MultipartFile foto) {
+		    @RequestParam(name="foto",required = false) MultipartFile foto
+		    ) 
+	{
 		
-		if (attoreService.checkAttore(email)!=null) {
-			return "redirect:/registrazione"; // aggiungere nel fe messaggio email già associata ad altro utente
+		if (attoreService.checkAttore(email)!=null) {			
+			return "redirect:/registrazione?err";
+		}
+		LocalDate etaMin = LocalDate.parse("2005-02-07");
+		LocalDate etaMax = LocalDate.parse("1935-02-07");
+		if (dataNascita.isAfter(etaMin)||dataNascita.isBefore(etaMax)) {
+			return "redirect:/registrazione?etaerr";
 		}
 		
 		attoreService.registraAttore(nome, cognome, dataNascita, password, email, ritratto, foto);
 		return "redirect:/";
 		
-	}
+		}
 	
 	
 }
