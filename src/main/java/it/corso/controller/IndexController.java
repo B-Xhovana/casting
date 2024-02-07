@@ -6,7 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import it.corso.model.Attore;
 import it.corso.model.Film;
+import it.corso.service.AttoreService;
 import it.corso.service.FilmService;
 import jakarta.servlet.http.HttpSession;
 
@@ -18,6 +21,7 @@ public class IndexController {
 	@Autowired
 	private FilmService filmService;
 	
+	@Autowired AttoreService attoreService;
 	@GetMapping
 	public String getPage(Model model, HttpSession session) {
 		List<Film> films = filmService.getFilms();
@@ -25,6 +29,9 @@ public class IndexController {
 		model.addAttribute("filmPerGenere", filmPerGenere);
 		
 		model.addAttribute("attorelog", session.getAttribute("attore"));
+		List<Attore> attori = attoreService.getAttoriLastIn();
+		model.addAttribute("ultimiattori", attori);
+		
 		
 		return "index";
 	

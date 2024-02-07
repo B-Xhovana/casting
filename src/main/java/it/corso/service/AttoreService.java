@@ -20,5 +20,6 @@ public interface AttoreService {
 	Attore checkAttore(String email);
 	public void newRitratto(int id, MultipartFile newRitr,HttpSession session);
 	public void newFoto(int id, MultipartFile newFoto,HttpSession session);
+	List<Attore> getAttoriLastIn();
 	
 }

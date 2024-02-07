@@ -2,7 +2,9 @@ package it.corso.service;
 
 import java.time.LocalDate;
 import java.util.Base64;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -132,6 +134,17 @@ public class AttoreServiceImpl implements AttoreService {
 	session.setAttribute("attore", attore);
 	attoreDao.save(attore);
 		
+	}
+
+	@Override //TESTING
+	public List<Attore> getAttoriLastIn() {
+		List<Attore> attoriFromLast = (List<Attore>) attoreDao.findAll();
+		attoriFromLast.sort(Comparator.comparing(Attore::getId).reversed());
+		
+		 return attoriFromLast;
+		
+		
+	
 	}
 
 }

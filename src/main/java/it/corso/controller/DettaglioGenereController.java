@@ -24,11 +24,14 @@ public class DettaglioGenereController {
 	public String getPage(Model model, HttpSession session, @RequestParam(name="gen", required = false)String genere) {
 		List<Film> films = filmService.getFilms();
 		
+		Map<String, List<Film>> filmPerGenere = filmService.getFilmByGenere(films);
+		model.addAttribute("filmPerGenere", filmPerGenere);
+		
 		
 		model.addAttribute("attorelog", session.getAttribute("attore"));
 		model.addAttribute("genere", genere);
-		Map<String, List<Film>> filmPerGenere = filmService.getFilmByGenere(films);
-		model.addAttribute("filmPerGenere", filmPerGenere.get(genere));
+		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
+		model.addAttribute("filmPerGenere2", filmPerGenere2.get(genere));
 		
 		return "dettagliogenere";
 	

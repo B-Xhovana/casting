@@ -17,6 +17,11 @@
         <header>
             <img class="logo" src="/img/LOGO.update.png" alt="logo">
             <nav class="nav_links">
+            <div class="generi-container" >
+            	<ul th:each="genereFilms : ${filmPerGenere}">
+            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+            	</ul>
+            </div>
                
 		    
             </nav>
@@ -36,8 +41,23 @@
         </header>
         
         <main>
+ <!-- ULTIMI ATTORI INSERITI -->
+			 <h3>ULTIMI ATTORI ISCRITTI</h3>
+			 <div class="film-cards-container">
+            <div th:each="attore, iterStat : ${ultimiattori}" th:if="${iterStat.index &lt; 5}" >
+                <div class="card">
+                    <img th:src="${attore.ritratto}" th:alt="${attore.nome} + ' ' + ${attore.cognome}">
+                    <h3 th:text="${attore.nome} + ' ' + ${attore.cognome}"></h3>
+                    <div class="cta">
+                    <a th:href="@{/dettaglioattore(id=${attore.id})}">Vedi presentazione</a>
+                    </div>
+                </div>
+
+                </div>
+                </div>
+        
            
-           
+ <!-- INIZIO ELENCO FILM PER GENERE -->   
             <div class="cta" th:each="genereFilms : ${filmPerGenere}">
             <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}">           
             </a>
