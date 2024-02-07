@@ -1,83 +1,96 @@
+@charset "ISO-8859-1";
 body {
 	background: url(/img/sfondo2.jpg) no-repeat;
 	background-color: rgba(0, 0, 0, 0.9);
     font-family: monospace;
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 100vh;
 }
 
 h1 {
     color: #4f6883ea;
+    margin-bottom: 10px;
 }
 
 p {
     font-size: large;
     color: #4a4848;
+    margin-bottom: 5px;
+}
+
+h2 {
+   color: #4f6883ea;
+   margin-bottom: 10px;
 }
 
 .container {
-    border-radius: 8px;
-    overflow: hidden;
-    width: 1200px;
-    background-color: #83c8f065;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
 }
 
-.main-container {
+.main-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(10, 11, 14, 0.79);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid rgba(135, 136, 136, 0.526);
+}
+
+.locandina-details-container {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
+}
+
+.locandina-box,
+.details-box {
+    width: 100%; /* Impostato a metà della larghezza del contenitore */
     padding: 20px;
-    width: 100%;
-}
-
-.left-box,
-.right-box {
-   flex: 1;
-   margin: 0 10px;
-}
-
-.left-box img {
-    max-width: 100%;
-    height: auto;
-}
-
-.film-details {
-    text-align: left;
-}
-
-.trailer-box {
     text-align: center;
-    margin-top: 20px;
-    width: 100%;
+    background-color: rgba(237, 233, 233, 0.9);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    height: 350px; /* Altezza fissa per entrambi i box */
+    box-sizing: border-box; /* Assicura che il padding non influenzi le dimensioni totali */
+    overflow: hidden; /* Impedisce il protrarsi di contenuti che superano le dimensioni */
 }
 
-.trailer-box iframe {
-   width: 800px;
-   height: 450px;
-   border: none;
-   margin: 0 auto;
+.details-box {
+	text-align: left;
 }
 
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 45px;
-    
+.locandina img {
+    max-width: 100%; 
+    height: 100%;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    object-fit: contain; /* Imposta l'immagine per adattarsi proporzionalmente al contenitore mantenendo l'aspetto */
+}
+
+img {
+    width: auto;
+    height: 300px;
+}
+
+.button:hover {
+    background-color: #4a84ba;
 }
 
 .button {
-    width: 120px;
+    width: 150px;
     height: 30px;
     border-radius: 15px;
-    background-color: #4a84ba;
+    background-color:#747171;
     color: #fff;
     display: flex;
     align-items: center;
@@ -85,5 +98,13 @@ p {
     cursor: pointer;
     margin-bottom: 30px;
     font-family: monospace;
+    border: none; /* Rimuove la linea di contorno */
+} 
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 45px; 
 }
+
 
