@@ -144,3 +144,65 @@ ul li a {
     border-radius: 8px;
 }
 
+/*NAVBAR*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0%;
+}
+
+.generi-container {
+	display: flex;
+	justify-content: space-between;
+    align-items: center;
+    padding: 10px 0%;
+    
+}
+button {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: #5f6162;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.nav_links a {
+    color: white;
+    
+}
+
+
+
+
+.logo {
+    width: 10rem;
+    cursor: pointer;
+}
+
+.nav_links {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    width: 100%;
+}
+
+.nav_links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav_links li a {
+    transform: all 0.3s ease 0s;
+}
+
+.nav_links li a:hover {
+    color: #83c8f0;
+}
+
+.cta {
+	position: relative;
+	z-index:9999;
+}

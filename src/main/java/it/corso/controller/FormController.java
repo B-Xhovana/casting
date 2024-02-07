@@ -1,6 +1,9 @@
 package it.corso.controller;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import it.corso.model.Attore;
+import it.corso.model.Film;
 import it.corso.service.AttoreService;
+import it.corso.service.FilmService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,6 +27,9 @@ public class FormController {
 	@Autowired
 	private AttoreService attoreService;
 	
+	@Autowired
+	private FilmService filmService;
+	
 	@GetMapping
 	public String getPage(
 			@RequestParam (name="err", required=false) String emailErr,
@@ -32,6 +41,12 @@ public class FormController {
 		model.addAttribute("attore", attore);
 		model.addAttribute("emailErr", emailErr!=null);
 		model.addAttribute("etaErr", etaErr!=null);
+		
+		//NAV BAR
+		List<Film> films = filmService.getFilms();
+		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
+		model.addAttribute("filmPerGenere2", filmPerGenere2);
+		//FINE NAVBAR
 		return "form";
 	}
 	

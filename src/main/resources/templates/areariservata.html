@@ -3,8 +3,25 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>Area riservata</title>
+		
 	</head>
 	<body>
+	<header>
+            <img class="logo" src="/img/LOGO.update.png" alt="logo">
+            <nav class="nav_links">
+            
+            <div class="generi-container" >
+            	<ul th:each="genereFilms : ${filmPerGenere2}">
+            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+            	</ul>
+            	<a class="cta" th:href="@{/}"><button>Home</button></a>
+            </div>
+            
+               
+		    
+            </nav>
+    </header>
+    
 		<h1 th:text="'Ciao ' + ${attore.nome} + '!' " ></h1>
 		<h2>Questa è la tua area riservata</h2>
 		<a th:href="@{/}">Torna alla Home</a>
