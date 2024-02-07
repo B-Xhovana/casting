@@ -26,10 +26,25 @@ h2 {
 
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: flex-start;
     min-height: 100vh;
+    width: 100%;
 }
+
+/*.main-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(10, 11, 14, 0.79);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid rgba(135, 136, 136, 0.526);
+}*/
 
 .main-box {
     display: flex;
@@ -44,23 +59,16 @@ h2 {
     border: 1px solid rgba(135, 136, 136, 0.526);
 }
 
-.locandina-details-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 100%;
-}
-
-.locandina-box,
-.details-box {
-    width: 100%; /* Impostato a metà della larghezza del contenitore */
+.left-box,
+.right-box {
+	
+   	width: 50%; /* Impostato a metà della larghezza del contenitore */
     padding: 20px;
     text-align: center;
     background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
     margin-bottom: 20px;
-    height: 350px; /* Altezza fissa per entrambi i box */
+    height: 500px; /* Altezza fissa per entrambi i box */
     box-sizing: border-box; /* Assicura che il padding non influenzi le dimensioni totali */
     overflow: hidden; /* Impedisce il protrarsi di contenuti che superano le dimensioni */
 }
@@ -69,21 +77,30 @@ h2 {
 	text-align: left;
 }
 
-.locandina img {
-    max-width: 100%; 
-    height: 100%;
+.left-box {
+    width: auto;
+    height: auto;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    object-fit: contain; /* Imposta l'immagine per adattarsi proporzionalmente al contenitore mantenendo l'aspetto */
+    object-fit: contain; 
 }
 
-img {
-    width: auto;
-    height: 300px;
+.film-details {
+    text-align: left;
 }
 
 .button:hover {
     background-color: #4a84ba;
+}
+
+.trailer-box {
+ 	text-align: center;
+    background-color: rgba(237, 233, 233, 0.9);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    height: 350px; /* Altezza fissa per entrambi i box */
+    box-sizing: border-box; /* Assicura che il padding non influenzi le dimensioni totali */
+    overflow: hidden; /* Impedisce il protrarsi di contenuti che superano le dimensioni */
 }
 
 .button {
@@ -100,6 +117,7 @@ img {
     font-family: monospace;
     border: none; /* Rimuove la linea di contorno */
 } 
+
 .button-container {
     display: flex;
     flex-direction: column;

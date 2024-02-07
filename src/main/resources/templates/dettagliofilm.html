@@ -1,87 +1,54 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-  <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Dettaglio attore</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" href="style.css">
-      <!-- link css -->
-      <!-- link Icone -->
-      <!-- link  Incone -->
-  </head>
-  <body>
-
-		<div class="container">
-    	<div class="main-box">
-
-        <!-- Box locandina + dettagli -->
-        <div class="locandina-details-container">
-
-            <!-- Box trama & locandina -->
-            <div class="locandina-box">
-                <div class="locandina">
-                    <!-- <img th:if="${attore.ritratto != null}" th:src="@{${attore.ritratto}}" alt="Ritratto di ${attore.nome}">
-                    <img th:if="${attore.ritratto == null}" th:src="@{/img/No_immagine_disponibile.svg.png}" alt="Immagine non disponibile"> -->
-                    <img src="/img/locandina.jpg" alt="locandine">
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio film</title>
+    <link rel="stylesheet" href="/css/dettagliofilm.css">
+</head>
+<body>
+    <div class="container">   
+        <!-- Box con locandina e dettagli film -->
+        <div class="main-box">
+        	<!-- Box con locandina -->
+        	<div class="left-box"> 
+                <img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
             </div>
-            
-            <!-- Box dettagli film -->
-            <div class="details-box">
-                <h1 th:text="${film.titolo}"></h1>
-                <section>
-                  <p><strong>Trama: </strong><span th:text="${film.trama}"></span></p>
-                  <p><strong>Data di uscita: </strong><span th:text="${film.dataUscita}"></span></p>
-                  <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
-                  <h5><strong>Cast:</strong></h5>
-                </section>
-
-                <section>
-                    <h2>Filmografia</h2>
-                    <ul th:each="f : ${filmografia}">
-                        <li>
-                            <a th:href="@{/dettagliofilm(id=${f.id})}" th:text="${f.titolo}"></a>
-                        </li>
-                    </ul>
-                </section>
-
-            </div>
-        </div>
-
-        <!-- gestione trailers -->
-        <div class="trailer">
-        	<div class="trailer-box">
-
-            <p><strong>Trailer: </strong></p> 
-            <input type="hidden" id="trailer" th:value="${film.trailer}" />
-
-            <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
-              <div id="player"></div>
-              
-              <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
-                <p> Trailer non disponibile</p>
-              </div>  
-            </div>
-
-            <!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
-          </div>
-        </div>
-
-        <!-- Button Torna alla Home -->
-        <div class="button-container">
-            <form th:action="@{/}" method="get">
-                <button type="submit" class="button">Torna alla Home</button>
-            </form>
-
-            <!-- TASTO CANDIDATURA PER IL FILM ???-->
-        </div>
-
-      </div>
-    </div>
-
-  <script src="/js/dettagliofilm.js"></script>
-  <script src="https://www.youtube.com/iframe_api"></script>
-  </body>
+            <!-- Box con dettagli film -->
+            <div class="right-box">
+        		<h1>Scheda film</h1>
+            		<div class="film-details">
+				        <p><strong>Titolo: </strong><span th:text="${film.titolo}"></span></p>
+					    <p><strong>Trama: </strong><span th:text="${film.trama}"></span></p>
+					    <p><strong>Data di uscita: </strong><span th:text="${film.dataUscita}"></span></p>
+					    <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
+					    <h5><strong>Cast</strong></h5>
+						   <ul th:each="a : ${cast}">
+							  <li>
+							    <a th:href="@{/dettaglioattore(id=${a.id})}" th:text="${a.nome} + ' ' + ${a.cognome}"></a>
+							  </li>
+							</ul>
+		    		</div>
+		    </div>
+		</div>
+		   
+		   	<div class="trailer-box">
+	        <input type="hidden" id="trailer" th:value="${film.trailer}" />
+	        <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
+	        <div id="player">
+	        </div>
+	        <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
+	        	<p> Trailer non disponibile</p>
+	        </div>   
+	        </div>
+			<!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
+        	</div>
+        	<div class="button-container">
+	            <form th:action="@{/}" method="get">
+	                <button type="submit" class="button">Home</button>
+	            </form>
+        	</div>   
+        <script src="/js/dettagliofilm.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+</body>
 </html>
