@@ -17,16 +17,16 @@ body {
     justify-content: center;
 }
 
-/* gestione navbar */
 li, a, button {
     font-family: 'Ubuntu Mono', monospace;
-    font-weight: 500;
-    font-size: 16px;
-    color: #ffffff;
+    font-weight: 200;
+    font-size: 15px;
+    color: #83c8f0;
     text-decoration: none;
     z-index: 9999;
 }
 
+/* gestione navbar */
 header {
     display: flex;
     justify-content: space-between;
@@ -67,6 +67,8 @@ button {
     transition: all 0.3s ease 0s;
 }
 
+
+
 /*button:hover {
     background-color: #83c8f0;
 }
@@ -80,7 +82,6 @@ button {
 h3 {
     color: #e9e5e5;
     margin-top: 1rem;
-    padding: 20px;
     text-align: flex-end;
 }
 
@@ -88,25 +89,40 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    overflow: auto; /* abitilita scroll orizontale */
+    /*overflow: auto;  abitilita scroll orizontale */
+    background-color: rgba(10, 11, 14, 0.76); /*AGGIUNTO BACKGROUND*/
+    border: 1px solid #67666699; /*AGGIUNTO BORDO*/
+    border-radius: 10px; /*AGGIUNTO BORDO*/
+
 }
 
 /* GESTIONE CARD */
 .card {
-    background-color: rgba(10, 11, 14, 0.76);
-    height: 380px;
+    /*background-color: rgba(10, 11, 14, 0.76); */
+    height: 450px;
     width: 200px;
-    border: 1px solid #9795955e;
+    /*border: 1px solid #9795955e; */
     border-radius: 10px;
     margin: 10px;
-    padding: 10px;
+    padding: 5px;
     text-align: center;
 }
 
 .card img {
-    max-width: 100%;
+    /*max-width: 100%;
     height: auto;
+    border-radius: 10px; */
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height: 250px; /* Change to your desired fixed height */
+    object-fit: cover; /* Ensure images maintain aspect ratio while filling the specified height */
     border-radius: 10px;
+}
+
+img {
+    width: 180px; /* Imposta la larghezza desiderata */
+    height: 200px; /* Imposta l'altezza desiderata */
 }
 
 p {
@@ -117,11 +133,29 @@ p {
     text-align: flex-end;
 }
 
-
 .cta {
-	 position: relative;
+	position: relative;
 	z-index:9999;
 }
+.cta-ancor {
+    display: flex; /* Utilizza flexbox */
+    flex-direction: column; /* Allinea gli elementi in una colonna */
+    align-items: center; /* Allinea gli elementi al centro verticalmente */
+}
+
+
+.cta-ancor a {
+    padding: 5px 30px;
+    margin: 5px;
+    background-color: #83c8f091;
+    /*border: 1px solid #ccc; */
+    text-decoration: none;
+    color: #333;
+    border-radius: 20px;
+}
+
+
+
 .generi-container {
     list-style-type: none;
     padding: 0;

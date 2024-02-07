@@ -67,8 +67,9 @@
                 <div class="card">
                     <img th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
-                    <div class="cta">
-                    <a th:href="@{/dettagliofilm(id=${film.id})}">Vedi dettagli film</a>
+                    <div class="cta-ancor">
+                    <a th:href="@{/dettagliofilm(id=${film.id})}">DETTAGLI</a>
+<!--  <a th:href="@{/dettagliofilm(id=${film.id})}"><button class="btn-details">dettagli</button></a>   -->                 
                     </div>
                 </div>
 
