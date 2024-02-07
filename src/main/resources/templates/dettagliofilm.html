@@ -24,7 +24,17 @@
 	        <p><strong>Data di uscita: </strong><span th:text="${film.dataUscita}"></span></p>
 	        <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
 	        <p><strong>Trailer: </strong></p> 
-			<iframe width="560" height="315" th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>
+	        <input type="hidden" id="trailer" th:value="${film.trailer}" />
+	        
+	        <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
+	        	<div id="player">
+	        	</div>
+	        </div>
+	        <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
+	        	<p> Trailer non disponibile
+	        	<p/>
+	        </div>
+			<!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
 
 	        <h5><strong>Cast</strong></h5>
 		    <ul th:each="a : ${cast}">
@@ -34,5 +44,7 @@
 		    </ul>
 		    </div> 
         </div>
+        <script src="/js/dettagliofilm.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
