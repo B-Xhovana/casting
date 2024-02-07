@@ -1,5 +1,6 @@
 body {
-	background: url(/img/sfondo.jpg) no-repeat;
+	background: url(/img/sfondo2.jpg) no-repeat;
+	background-color: rgba(0, 0, 0, 0.9);
     font-family: monospace;
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ h1 {
     color: #4f6883ea;
 }
 
-p{
+p {
     font-size: large;
     color: #4a4848;
 }
@@ -22,20 +23,46 @@ p{
     border-radius: 8px;
     overflow: hidden;
     width: 1200px;
-    height: 500px;
     background-color: #83c8f065;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.actor-image {
-    max-width: 60%;
-    overflow: hidden;
-}
-
-.actor-image img {
+.main-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px;
     width: 100%;
+}
+
+.left-box,
+.right-box {
+   flex: 1;
+   margin: 0 10px;
+}
+
+.left-box img {
+    max-width: 100%;
     height: auto;
-    display: block;
+}
+
+.film-details {
+    text-align: left;
+}
+
+.trailer-box {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.trailer-box iframe {
+   width: 800px;
+   height: 450px;
+   border: none;
+   margin: 0 auto;
 }
 
 .button-container {
@@ -60,16 +87,3 @@ p{
     font-family: monospace;
 }
 
-.actor-details-box {
-    flex: 1;
-
-    padding: 10px;
-}
-
-.actor-details {
-    margin: 0;
-}
-
-h2, p {
-    margin: 0 0 10px 0;
-}

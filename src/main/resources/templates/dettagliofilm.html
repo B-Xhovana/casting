@@ -12,38 +12,42 @@
 	            <form th:action="@{/}" method="get">
 	                <button type="submit" class="button">Torna alla Home</button>
 	            </form>
-        	</div>
-        </div>
-        <div class="actor-details-box">
-        	<h1>Scheda film</h1>
-            <div class="actor-details">
-                <p><strong>Titolo: </strong><span th:text="${film.titolo}"></span></p>
+        	</div>        
+        <div class="main-container">
+        <div class="left-box">
                 <p><strong>Locandina: </strong></p> 
-	        <img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
+                <img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
+            </div>
+            <div class="right-box">
+        	<h1>Scheda film</h1>
+            <div class="film-details">
+            <p><strong>Titolo: </strong><span th:text="${film.titolo}"></span></p>
 	        <p><strong>Trama: </strong><span th:text="${film.trama}"></span></p>
 	        <p><strong>Data di uscita: </strong><span th:text="${film.dataUscita}"></span></p>
 	        <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
-	        <p><strong>Trailer: </strong></p> 
-	        <input type="hidden" id="trailer" th:value="${film.trailer}" />
-	        
-	        <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
-	        	<div id="player">
-	        	</div>
-	        </div>
-	        <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
-	        	<p> Trailer non disponibile
-	        	<p/>
-	        </div>
-			<!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
-
 	        <h5><strong>Cast</strong></h5>
 		    <ul th:each="a : ${cast}">
 		    	<li>
 		    		<a th:href="@{/dettaglioattore(id=${a.id})}" th:text="${a.nome} + ' ' + ${a.cognome}"></a>
 		    	</li>
 		    </ul>
-		    </div> 
-        </div>
+		    </div>
+		    </div>
+		    </div>
+		    </div>
+		   	<div class="trailer-box">
+	        <p><strong>Trailer: </strong></p> 
+	        <input type="hidden" id="trailer" th:value="${film.trailer}" />
+	        <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
+	        <div id="player">
+	        </div>
+	        <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
+	        	<p> Trailer non disponibile
+	        	<p/>
+	        </div>   
+	        </div>
+			<!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
+        	</div>
         <script src="/js/dettagliofilm.js"></script>
         <script src="https://www.youtube.com/iframe_api"></script>
 </body>
