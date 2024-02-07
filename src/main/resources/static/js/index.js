@@ -10,6 +10,27 @@ function fixNav() {
     }
 }
 
+//GESTIONE BOTTONE TORNA SU (SCROLL)
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    var tornaSuBtn = document.getElementById("tornaSuBtn");
+
+    // Mostra il pulsante "Torna su" 
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        tornaSuBtn.style.display = "block";
+    } else {
+        tornaSuBtn.style.display = "none";
+    }
+}
+
+//Tona a inizio pagina quando clicco sul pulsante torna su
+function scrollToTop() {
+    document.body.scrollTop = 0; // Per Safari
+    document.documentElement.scrollTop = 0; 
+}
+
 /*//GESTIONE BARRA DI RICERCA
 function cercaFilm() {
     

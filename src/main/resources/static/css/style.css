@@ -18,7 +18,6 @@ body {
 }
 
 /* gestione navbar */
-
 li, a, button {
     font-family: 'Ubuntu Mono', monospace;
     font-weight: 500;
@@ -94,7 +93,8 @@ h3 {
 
 /* GESTIONE CARD */
 .card {
-    
+    background-color: rgba(10, 11, 14, 0.76);
+    height: 380px;
     width: 200px;
     border: 1px solid #9795955e;
     border-radius: 10px;
@@ -127,4 +127,24 @@ p {
     padding: 0;
     margin: 0;
     display: flex;
+}
+
+/*NASCONDI PULSANTE TORNA SU*/
+.torna-su-btn {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+    background-color:  #5f6162;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.torna-su-btn:hover {
+    background-color: #0056b3;
 }

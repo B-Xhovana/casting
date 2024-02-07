@@ -58,6 +58,7 @@ body {
     background: transparent;
     border: none;
     outline: none;
+    color: white; /* colore del testo input bianco */
 }
 
 i {
