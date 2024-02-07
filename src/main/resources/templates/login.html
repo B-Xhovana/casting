@@ -10,10 +10,12 @@
 <body>
     <!-- Form regisrazione -->
     <div class="container">
+    	
         <div class="form-box">  
-
+			
             <form action="" method="post" name="formfill" id="form"> <!-- collegamento JavaScript-->
-                <h2>Accedi</h2>
+                
+                <h2>Accedi</h2> 	
 
                 <div class="form-row email-wrapper"> <!--da replica x ogni campo-->
                     <div class="input-box">
@@ -40,8 +42,11 @@
                 <div class="group">
                     <!-- span per la password dimenticata qui? -->
                     <span><a th:href="@{/registrazione}">Non hai un account? Registrati</a></span>
+                    
                 </div>
-
+				<div style="margin-top: 20px;">
+                    <a th:href="@{/}" th:text="'Torna Alla Home'" style="color:white;"></a>
+                </div>
             </form>
             
         </div>
