@@ -35,7 +35,7 @@ header {
 }
 
 .logo {
-    width: 10rem;
+    width: auto;
     cursor: pointer;
 }
 
@@ -137,6 +137,7 @@ p {
 	position: relative;
 	z-index:9999;
 }
+
 .cta-ancor {
     display: flex; /* Utilizza flexbox */
     flex-direction: column; /* Allinea gli elementi in una colonna */
