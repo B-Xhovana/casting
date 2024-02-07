@@ -37,10 +37,11 @@ h2 {
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
-    background-color: rgba(10, 11, 14, 0.9);
+    background-color: rgba(10, 11, 14, 0.79);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    border: 1px solid rgba(135, 136, 136, 0.526);
 }
 
 .portrait-details-container {
@@ -56,7 +57,7 @@ h2 {
     width: 50%; /* Impostato a metà della larghezza del contenitore */
     padding: 20px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
     margin-bottom: 20px;
     height: 500px; /* Altezza fissa per entrambi i box */
@@ -96,15 +97,20 @@ ul li a {
     object-fit: contain; /* Imposta l'immagine per adattarsi proporzionalmente al contenitore mantenendo l'aspetto */
 }
 
+.totalBody img {
+	border-radius: 8px;
+	object-fit: contain;
+}
+
 .button:hover {
-    background-color: #356094;
+    background-color: #4a84ba;
 }
 
 .button {
-    width: 120px;
+    width: 150px;
     height: 30px;
     border-radius: 15px;
-    background-color: #4a84ba;
+    background-color:#747171;
     color: #fff;
     display: flex;
     align-items: center;
@@ -112,8 +118,8 @@ ul li a {
     cursor: pointer;
     margin-bottom: 30px;
     font-family: monospace;
+    border: none; /* Rimuove la linea di contorno */
 } 
-
 .button-container {
     display: flex;
     flex-direction: column;
@@ -122,10 +128,10 @@ ul li a {
 }
 
 .full-image {
-   	max-width: 100%;
+   	width: 803px;
     padding: 20px;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
     margin-bottom: 20px;
 }
