@@ -18,7 +18,6 @@ body {
 }
 
 /* gestione navbar */
-
 li, a, button {
     font-family: 'Ubuntu Mono', monospace;
     font-weight: 500;
@@ -94,7 +93,8 @@ h3 {
 
 /* GESTIONE CARD */
 .card {
-    
+    background-color: rgba(10, 11, 14, 0.76);
+    height: 380px;
     width: 200px;
     border: 1px solid #9795955e;
     border-radius: 10px;
