@@ -37,14 +37,9 @@
 			  		Data di nascita non valida.
 				</div>
 				<div th:if="${incompleto}" class="alert alert-warning" role="alert">
-			  		Inserisci tutti i dati obbligatori (*).
+			  		Tutti i campi sono obbligatori!
 				</div>
-                <div th:if="${emailErr}" class="alert alert-warning" role="alert">
-		  			Esiste già un profilo associato a questa email.
-				</div>
-				<div th:if="${etaErr}" class="alert alert-warning" role="alert">
-			  		Data di nascita non valida.
-				</div>
+           
                 <div class="form-row name-wrapper">
                     <div class="input-box">
                         <i class='bx bx-user'></i>
