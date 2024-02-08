@@ -1,0 +1,107 @@
+.slide{
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.slide video{
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+.video-controls {
+    display: none;
+}
+
+.text-overlay{
+    z-index: 10;
+    position: absolute;
+    width:100%;
+    height:100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.287);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+
+h2 {
+    font-size: 1.3rem;
+    font-weight: 20; /* spessore font */
+    font-family: 'Open Sans', sans-serif; /* cambia il font */
+    color: rgb(255, 255, 255); 
+    transition: all 0.5s ease; /* transizione in entrata */
+}
+
+.content h1 {
+    font-size: 6rem;
+    font-weight: 200; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; /* cambia il font */
+    -webkit-text-stroke: 0px rgb(203, 204, 204); /* cambia linea dei font*/
+    color: gainsboro; 
+    transition: all 0.5s ease; /* transizione in entrata */
+}
+
+.content h3 {
+    font-size: 3rem;
+    font-weight: 200; 
+    font-family: 'Open Sans', sans-serif; /* cambia il font */
+    color: rgb(214, 214, 214); 
+    transition: all 0.5s ease; /* transizione in entrata */
+    margin-top: -15px;
+}
+
+  
+.btn {
+    width: auto;
+    height: 50px;
+    border-radius: 5px;
+    background: transparent;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+}
+  
+.btn:hover {
+    
+    transform: translateY(-7px);
+    background-color: rgb(106, 160, 189);
+    
+}
+  
+
+.light::after {
+    content: "scopri qui i film con ruoli disponibili!";
+    position: absolute;
+    width: 700px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(35px);
+    -webkit-backdrop-filter: blur(35px);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+}
+  
+.background-video {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+  
