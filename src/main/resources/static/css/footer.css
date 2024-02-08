@@ -1,0 +1,266 @@
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: Acumin-pro, system-ui, sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    font-size: 14px;
+    background-color: #89878700;
+    align-items: start;
+    min-height: 100vh;
+}
+
+.footer {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 30px 30px 20px 30px;
+    color: #ebebeb;
+    background-color: #1e1d1d82;
+    border-top: 1px solid #f6f0f000;
+}
+
+.footer > * {
+    flex: 1 100%;
+}
+
+.footer__addr {
+    margin-right: 1.25em;
+    margin-bottom: 2em;
+}
+
+.footer__logo {
+    font-family: 'Pacifico', cursive;
+    font-weight: 400;
+    text-transform: lowercase;
+    font-size: 1.5rem;
+}
+
+.footer__addr h2 {
+    margin-top: 1.3em;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.nav__title {
+    font-weight: 400;
+    font-size: 15px;
+}
+
+.footer address {
+    font-style: normal;
+    color: #faf3f3;
+}
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    max-width: max-content;
+    background-color: #83c8f0;
+    border-radius: 100px;
+    color: #2d2d2d;
+    line-height: 0;
+    margin: 0.6em 0;
+    font-size: 1rem;
+    padding: 0 1.3em;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer li {
+    line-height: 2em;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.footer__nav {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.footer__nav > * {
+    flex: 1 50%;
+    margin-right: 1.25em;
+}
+
+.nav__ul a {
+    color: #eeeaea;
+}
+
+.nav__ul--extra {
+    column-count: 2;
+    column-gap: 1.25em;
+}
+
+.legal {
+    display: flex;
+    flex-wrap: wrap;
+    color: #999;
+}
+
+.legal__links {
+    display: flex;
+    align-items: center;
+}
+
+.heart {
+    color: #ccc9c9;
+}
+
+@media screen and (min-width: 24.375em) {
+    .legal .legal__links {
+        margin-left: auto;
+    }
+}
+
+@media screen and (min-width: 40.375em) {
+    .footer__nav > * {
+        flex: 1;
+    }
+
+    .nav__item--extra {
+        flex-grow: 2;
+    }
+
+    .footer__addr {
+        flex: 1 0px;
+    }
+
+    .footer__nav {
+        flex: 2 0px;
+    }
+}
+
+/* Additional Footer Styles */
+footer {
+    /* position: relative; */
+    padding: 2rem 0;
+    background: var(--bg-color);
+    width: 100%;
+}
+
+.footer .containerF {
+    z-index: 10;
+    position: relative;
+    height: 50%;
+    background-color: #242831;
+}
+
+.logo {
+    max-width: 40vw;
+    max-height: 40vw;
+}
+
+.footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        rgba(21, 31, 48, 0.35) 0%,
+        var(--bg-color) 100%
+    );
+}
+
+.footer-main {
+    z-index: 2;
+}
+
+/* Footer Top */
+.top-footer {
+    display: flex;
+    align-items: center;
+    gap: 5rem;
+    width: 100%;
+}
+
+/* Footer Left */
+.footer-left {
+    flex: 25%;
+    margin-top: 4rem;
+    padding: 0 1.5rem;
+    height: 100%;
+}
+
+/* Footer Right */
+.footer-right {
+    display: flex;
+    margin-left: 11.2rem;
+    margin-top: 4rem;
+    height: 100%;
+}
+
+.footer-col {
+    padding: 0 1.5rem;
+    width: 10rem;
+    height: 100%;
+}
+
+.footer-col:nth-child(2) {
+    width: 38.4rem;
+}
+
+.footer__title {
+    margin-bottom: 1.5rem;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: var(--second-font);
+}
+
+.footer__nav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem 3rem;
+    width: 19.2rem;
+}
+
+.footer__nav a {
+    font-size: 1.4rem;
+}
+
+.footer__group {
+    display: flex;
+    width: 100%;
+    gap: 2rem;
+}
+
+.bottom-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(47, 128, 237, 0.1);
+    margin-top: 16rem;
+    height: 100px;
+    padding: 0px;
+    background-color: #ff0000;
+}
+
+.footer__copyright {
+    font-size: 1.3rem;
+}
+
+.footer__links {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    font-size: 1.4rem;
+}
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
