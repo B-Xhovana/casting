@@ -34,6 +34,7 @@ public class FormController {
 	public String getPage(
 			@RequestParam (name="err", required=false) String emailErr,
 			@RequestParam (name="etaerr", required = false)String etaErr,
+			@RequestParam (name="incompleto", required=false) String incompleto,
 			Model model
 			) 
 	{
@@ -41,6 +42,7 @@ public class FormController {
 		model.addAttribute("attore", attore);
 		model.addAttribute("emailErr", emailErr!=null);
 		model.addAttribute("etaErr", etaErr!=null);
+		model.addAttribute("incompleto",incompleto!=null);
 		
 		//NAV BAR
 		List<Film> films = filmService.getFilms();
@@ -65,6 +67,12 @@ public class FormController {
 		if (attoreService.checkAttore(email)!=null) {			
 			return "redirect:/registrazione?err";
 		}
+		
+		//msg dati mancanti err
+		if (nome.isBlank() || cognome.isBlank() || email.isBlank() || password.isBlank()) {
+			return "redirect:/registrazione?incompleto";
+		}
+		
 		LocalDate etaMin = LocalDate.parse("2005-02-07");
 		LocalDate etaMax = LocalDate.parse("1935-02-07");
 		if (dataNascita.isAfter(etaMin)||dataNascita.isBefore(etaMax)) {
@@ -72,7 +80,7 @@ public class FormController {
 		}
 		
 		attoreService.registraAttore(nome, cognome, dataNascita, password, email, ritratto, foto);
-		return "redirect:/";
+		return "redirect:/login";
 		
 		}
 	
