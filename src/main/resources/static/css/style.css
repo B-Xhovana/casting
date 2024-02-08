@@ -106,13 +106,16 @@ h3 {
     margin: 10px;
     padding: 5px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    
 }
 
 .card img {
     /*max-width: 100%;
     height: auto;
-    border-radius: 10px; */
-    max-width: 100%;
+    border-radius: 10px;
+    max-width: 100%; */
     margin-top: 10px;
     margin-bottom: 10px;
     height: 250px; /* Change to your desired fixed height */
@@ -139,20 +142,20 @@ p {
 }
 
 .cta-ancor {
-    display: flex; /* Utilizza flexbox */
-    flex-direction: column; /* Allinea gli elementi in una colonna */
-    align-items: center; /* Allinea gli elementi al centro verticalmente */
+    margin-top: auto;
+    margin-bottom: 2rem;
 }
 
 
 .cta-ancor a {
+	
     padding: 5px 30px;
-    margin: 5px;
     background-color: #83c8f091;
-    /*border: 1px solid #ccc; */
+    /*bordergb(210, 210, 210)px solid #ccc; */
     text-decoration: none;
-    color: #333;
+    color:#F7F4F3;
     border-radius: 20px;
+    margin-bottom: 0;
 }
 
 
