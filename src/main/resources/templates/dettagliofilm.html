@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettaglio film</title>
+    <link rel="stylesheet" href="/css/dettagliofilm.css">
+</head>
+<body>
+<header>
+            <img class="logo" src="/img/LOGO.update.png" alt="logo">
+            <nav class="nav_links">
+            
+            <div class="generi-container" >
+            	<ul th:each="genereFilms : ${filmPerGenere2}">
+            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+            	</ul>
+            	<a class="cta" th:href="@{/}"><button>Home</button></a>
+            </div>
+            
+               
+		    
+            </nav>
+    </header>
+    <div class="container">   
+        <!-- Box con locandina, dettagli film, trailer e button -->
+        <div class="main-box">
+        	<!-- Box con locandina e dettagli film -->
+        	<div class="left-right-box">
+        		<!-- Box con locandina -->
+	        	<div class="left-box">
+	        		<div class="img">
+	                	<img th:if="${film.locandina != null}" th:src="@{${film.locandina}}">
+	                </div>
+	            </div>
+	            <!-- Box con dettagli film -->
+	            <div class="right-box">
+	        		<h1>Scheda film</h1>
+	            		<div class="film-details">
+					        <p><strong>Titolo: </strong><span th:text="${film.titolo}"></span></p>
+						    <p><strong>Trama: </strong><span th:text="${film.trama}"></span></p>
+						    <p><strong>Data di uscita: </strong><span th:text="${#temporals.format(film.dataUscita, 'dd-MM-yyyy')}"></span></p>
+						    <p><strong>Genere: </strong><span th:text="${film.genere}"></span></p>
+						    <h5><strong>Cast</strong></h5>
+							   <ul th:each="a : ${cast}">
+								  <li>
+								    <a th:href="@{/dettaglioattore(id=${a.id})}" th:text="${a.nome} + ' ' + ${a.cognome}"></a>
+								  </li>
+								</ul>
+			    		</div>
+			    </div>
+		    </div>
+		   	<div class="trailer-box">
+	        <input type="hidden" id="trailer" th:value="${film.trailer}" />
+	        <div id="player-container"  th:if="${NOT #strings.isEmpty(film.trailer)}">
+	        <div id="player">
+	        </div>
+	        <div id="player-container"  th:if="${#strings.isEmpty(film.trailer)}">
+	        	<p> Trailer non disponibile</p>
+	        </div>   
+	        </div>
+			<!--  <iframe th:if="${film.trailer != null}" th:src="${film.trailer}"></iframe>-->
+        	</div>
+        	<div class="button-container">
+	            <form th:action="@{/}" method="get">
+	                <button type="submit" class="button">Home</button>
+	            </form>
+        	</div>
+        	</div>
+        	</div>
+        	
+        <script src="/js/dettagliofilm.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
