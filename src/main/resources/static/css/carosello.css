@@ -1,0 +1,68 @@
+/*
+
+.carousel-item {
+    height: 600px;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+.testo {
+    color: black;
+}
+
+h5 {
+    font-size: 2rem;
+    font-weight: 20; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px red;
+    color: rgb(172, 88, 88); 
+    transition: all 0.5s ease; 
+    /* webkit-text-stroke: 1px rgb(252, 251, 251); cambia linea dei font
+}
+
+p {
+    font-size: 1.5rem;
+    font-weight: 20; 
+    font-family: 'Open Sans', sans-serif; 
+    font-style: italic;
+    color: rgb(182, 180, 180); 
+    transition: all 0.5s ease; 
+}*/
+
+.pippo {
+    height:400px;
+}
+
+.carousel-item img {
+    object-fit:contain;
+}
+
+.d-block {
+    width: 100%;
+}
+
+.testo {
+    color: black;
+}
+
+h5 {
+    font-size: 1.5rem;
+    font-weight: 20; 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-shadow: 2px 2px 3px rgb(28, 28, 28);
+    color: rgb(247, 244, 244); 
+    transition: all 0.5s ease;  
+    /* webkit-text-stroke: 1px rgb(252, 251, 251); cambia linea dei font */
+}
+
+p {
+    font-size: 20px;
+    font-weight: 20; 
+    font-family: 'Open Sans', sans-serif; 
+    font-style: italic;
+    color: rgb(182, 180, 180); 
+    transition: all 0.5s ease; 
+}

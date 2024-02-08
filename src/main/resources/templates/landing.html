@@ -1,10 +1,32 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<a th:href="@{/}">Entra nel sito</a>
-</body>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/css/landing.css">
+    </head>
+    <body>
+        <div class="slide">
+            <div class="text-overlay">
+                <section class="content">
+                    <h1>ON ACT</h1>
+                    <h3>studio</h3>
+                </section>
+                <a th:href="@{/}" class="btn light">bottone che porta ai ruoli disponibili</a>
+              
+                <!--<a class="btn" href="#">ruoli disponibili</a> -->
+            </div>
+            <video controls loop muted autoplay>
+                <source src="/video/landingpage.mp4" type="video/mp4">
+            
+            
+            </video>       
+        </div>
+
+    </body>
 </html>
+
+

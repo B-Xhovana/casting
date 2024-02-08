@@ -27,15 +27,19 @@
     <!-- Form regisrazione -->
     <div class="container">
         <div class="form-box">  
-
             <form action="" th:object="${attore}" method="post" enctype="multipart/form-data" name="formfill" id="form"> <!-- collegamento JavaScript-->
+                
                 <h2>Unisciti al Cast!</h2>
                 <div th:if="${emailErr}" class="alert alert-warning" role="alert">
-		  			Esiste già un profilo associato a questa email.
+		  		Esiste già un profilo associato a questa email.
 				</div>
 				<div th:if="${etaErr}" class="alert alert-warning" role="alert">
 			  		Data di nascita non valida.
 				</div>
+				<div th:if="${incompleto}" class="alert alert-warning" role="alert">
+			  		Tutti i campi sono obbligatori!
+				</div>
+           
                 <div class="form-row name-wrapper">
                     <div class="input-box">
                         <i class='bx bx-user'></i>
