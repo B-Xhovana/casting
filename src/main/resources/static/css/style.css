@@ -7,9 +7,9 @@
 }
 
 body {
-    background: url(/img/sfondo.jpg) no-repeat;
+    /*background: url(/img/sfondo.jpg) no-repeat;
     background-position: center;
-    background: url(/img/sfondo2.jpg) no-repeat;
+    background: url(/img/sfondo2.jpg) no-repeat;*/
 	background-color: rgba(0, 0, 0, 0.9);
     background-size: cover;
     /*min-height: 100vh;
@@ -35,82 +35,14 @@ header {
     margin: 5px 0%
 }
 
-.logoN {
-    width: 6rem;
-    height: 6rem;
-    cursor: pointer;
+.hidden {
+	display: none;
 }
+
 
 .logoF {
     width: auto;
     cursor: pointer;
-}
-
-.nav_links {
-    list-style: none;
-    
-}
-
-.nav_links li {
-    display: inline-block;
-    padding: 0px 7px;
-}
-
-.nav_links li a {
-    transform: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-    color: #e9e5e5;  
-}
-
-/* Menu item styles */
-.menuItem {
-  display: block;
-  margin: 2rem 4rem;
-  font-size: 1.8rem;
-  color: white;
-  text-decoration: none;
-}
-
-.menuItem:hover {
-  text-decoration: underline;
-}
-
-/* Hamburger button styles */
-.hamburger {
-  position: fixed;
-  z-index: 100;
-  top: 1rem;
-  right: 1rem;
-  padding: 4px;
-  border: black solid 1px;
-  background: white;
-  cursor: pointer;
-}
-
-.closeIcon {
-  display: none;
-}
-
-/* Menu styles */
-.menu {
-  position: fixed;
-  transform: translateY(-100%);
-  transition: transform 0.2s;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99;
-  background: black;
-  color: white;
-  list-style: none;
-  padding-top: 4rem;
-}
-
-.showMenu {
-  transform: translateY(0);
 }
 
 
@@ -265,7 +197,4 @@ p {
 .torna-su-btn:hover {
     background-color: #0056b3;
 }
-
-
-
 

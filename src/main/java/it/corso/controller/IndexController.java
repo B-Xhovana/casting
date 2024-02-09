@@ -28,7 +28,7 @@ public class IndexController {
 		Map<String, List<Film>> filmPerGenere = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere", filmPerGenere);
 		
-		model.addAttribute("attorelog", session.getAttribute("attore"));
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		List<Attore> attori = attoreService.getAttoriLastIn();
 		model.addAttribute("ultimiattori", attori);
 		
