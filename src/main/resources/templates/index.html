@@ -7,38 +7,44 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         
-        
+         <link rel="stylesheet" href="/css/footer.css">
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/footer.css">
+       
         
     </head>
     
     <body>
         <!-- GESTIONE NAVBAR -->
         <header>
-            <img class="logo" src="/img/LOGO.update.png" alt="logo">
-            <nav class="nav_links">
-            <div class="generi-container" >
-            	<ul th:each="genereFilms : ${filmPerGenere}">
-            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
-            	</ul>
-            </div>
-               
-		    
-            </nav>
-            
-         <!--   <div class="search-bar">
-                <input type="text" id="movie-search" placeholder="Cerca film...">
-                <button onclick="searchMovie()">Cerca</button>
-            </div>-->  
-            <div class="cta" th:if="${attorelog} == null">
-			    <a th:href="@{/login}"><button>Accedi</button></a>
-			 </div >
-			 
-			 <div class="cta" th:if="${attorelog} != null">
-			    <a  th:href="@{/areariservata}"><button>Area riservata</button></a>
-		    </div>   
-        </header>
+    <img class="logoN" src="/img/LOGO.update.png" alt="logo">
+    
+    <nav class="nav_links">
+        <div class="generi-container">
+            <ul th:each="genereFilms : ${filmPerGenere}">
+                <li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Menu and hamburger button -->
+    <ul class="menu">
+        <li><a class="menuItem" href="#">Generi</a></li>
+        <li><a class="menuItem" href="#">Profilo</a></li>
+    </ul>
+    <button class="hamburger">
+        <i class="menuIcon material-icons">menu</i>
+        <i class="closeIcon material-icons">close</i>
+    </button>
+
+    <!-- Login and Area riservata buttons -->
+    <div class="cta" th:if="${attorelog} == null">
+        <a th:href="@{/login}"><button>ACCEDI</button></a>
+    </div>
+    <div class="cta" th:if="${attorelog} != null">
+        <a th:href="@{/areariservata}"><button>Area riservata</button></a>
+    </div>
+</header>
+
        
         
         <main>
@@ -52,7 +58,7 @@
                     <img th:src="${attore.ritratto}" th:alt="${attore.nome} + ' ' + ${attore.cognome}">
                     <h3 th:text="${attore.nome} + ' ' + ${attore.cognome}"></h3>
                     <div class="cta">
-                    <a th:href="@{/dettaglioattore(id=${attore.id})}">Vedi presentazione</a>
+                     <a class="portfolio" th:href="@{/dettaglioattore(id=${attore.id})}">portfolio personale</a>
                     </div>
                 </div>
 
@@ -70,7 +76,7 @@
                     <img th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
                     <div class="cta-ancor">
-                    <a th:href="@{/dettagliofilm(id=${film.id})}">DETTAGLI</a>
+                    <a th:href="@{/dettagliofilm(id=${film.id})}">dettagli</a>
 <!--  <a th:href="@{/dettagliofilm(id=${film.id})}"><button class="btn-details">dettagli</button></a>   -->                 
                     </div>
                 </div>
@@ -89,7 +95,7 @@
             <!-- !!! FOOTER !!!-->
            <footer class="footer">
                 <div class="footer__addr">
-                    <img class="logo" src="/img/LOGO.update.png" alt="logo">
+                    <img class="logoF" src="/img/LOGO.update.png" alt="logoF">
                       
                     <h2>Contatti</h2>
                   
@@ -101,10 +107,10 @@
                 </div>
                 
                 <ul class="footer__nav">
-                    <li class="nav__item">
-                        <h2 class="nav__title">Media</h2>
+                    <li class="footerNav__item">
+                        <h2 class="footerNav-title">Media</h2>
               
-                        <ul class="nav__ul">
+                        <ul class="footerNav-ul">
                             <li>
                                 <a href="#">online</a>
                             </li>
@@ -119,10 +125,10 @@
                         </ul>
                   </li>
                   
-                  <li class="nav__item nav__item--extra">
-                    <h2 class="nav__title">ON ACT studio</h2>
+                  <li class="footerNav__item footerNav__item--extra">
+                    <h2 class="footerNav__title">ON ACT studio</h2>
                     
-                    <ul class="nav__ul nav__ul--extra">
+                    <ul class="footerNav__ul footerNav__ul--extra">
                         <li>
                             <a href="#">chi siamo</a>
                         </li>

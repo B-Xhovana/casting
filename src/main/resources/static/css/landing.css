@@ -61,42 +61,34 @@ h2 {
 }
 
   
-.btn {
-    width: auto;
-    height: 50px;
-    border-radius: 5px;
-    background: transparent;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    transition: all 0.3s ease-in;
-}
-  
-.btn:hover {
-    
-    transform: translateY(-7px);
-    background-color: rgb(106, 160, 189);
-    
-}
-  
 
-.light::after {
-    content: "scopri qui i film con ruoli disponibili!";
-    position: absolute;
-    width: 700px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(35px);
-    -webkit-backdrop-filter: blur(35px);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    border-radius: 5px;
+/*stile del bottone */
+.btn.light{
+	
+    background-color: rgba(18, 17, 17, 0.663); 
+    padding: 10px 20px; 
+    margin: 100px;
+    margin-top: 5rem;
+    font-family: 'Open Sans', sans-serif; 
+    font-size: 19px;
+    font-weight: 500;
+    color: rgb(226, 222, 222);  
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #9795955e;
+    border-radius: 25px; 
+    transition: background-color 0.3s ease;
+    text-shadow: 2px 2px 3px rgb(28, 28, 28);
 }
+
+
+
+.light:hover {
+    background-color: #80b3d1; 
+    color: #131212e4; 
+}
+
   
 .background-video {
     position: absolute;

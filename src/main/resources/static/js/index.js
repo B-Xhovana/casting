@@ -1,14 +1,29 @@
 // GESTIONE NAVBAR
-const nav = document.querySelector('.nav')
-window.addEventListener('scroll', fixNav)
+const menu = document.querySelector(".menu");
+const menuItems = document.querySelectorAll(".menuItem");
+const hamburger= document.querySelector(".hamburger");
+const closeIcon= document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
 
-function fixNav() {
-    if (window.scrollY > nav.offsetHeight + 150) {
-        nav.classList.add('active')
-    } else {
-        nav.classList.remove('active')
-    }
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
 }
+
+hamburger.addEventListener("click", toggleMenu);
+
+menuItems.forEach( 
+  function(menuItem) { 
+    menuItem.addEventListener("click", toggleMenu);
+  }
+)
 
 //GESTIONE BOTTONE TORNA SU (SCROLL)
 
@@ -30,23 +45,4 @@ function scrollToTop() {
     document.body.scrollTop = 0; // Per Safari
     document.documentElement.scrollTop = 0; 
 }
-
-/*//GESTIONE BARRA DI RICERCA
-function cercaFilm() {
-    
-    var searchQuery = document.getElementById("movie-search").value.toLowerCase();
-    var filmCards = document.querySelectorAll('.film-cards-container .card');
-
-    filmCards.forEach(function(card) {
-       
-        var title = card.querySelector('h3').innerText.toLowerCase();
-
-        // check del titolo nella query di ricerca
-        if (title.includes(searchQuery)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}*/
 
