@@ -47,7 +47,7 @@ h2 {
 .portrait-details-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
     width: 100%;
 }
@@ -61,9 +61,7 @@ h2 {
     background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
     margin-bottom: 20px;
-    height: 500px; /* Altezza fissa per entrambi i box */
-    box-sizing: border-box; /* Assicura che il padding non influenzi le dimensioni totali */
-    overflow: hidden; /* Impedisce il protrarsi di contenuti che superano le dimensioni */
+    overflow: hidden; 
 }
 
 .details-box {
@@ -93,17 +91,27 @@ ul li a {
 .fotoritratto img {
    	width: calc(100% - 40px);
    	height: 450px;
-    padding-top: 5px; /* Applica 10 pixel di padding sopra la box */
-    padding-right: 20px; /* Applica 20 pixel di padding a destra della box */
-    padding-bottom: 20px; /* Applica 10 pixel di padding sotto la box */
-    padding-left: 20px; /* Applica 20 pixel di padding a sinistra della box */
+    padding-top: 5px; 
+    padding-right: 20px; 
+    padding-bottom: 20px; 
+    padding-left: 20px; 
     border-radius: 8px;
     object-fit: contain;
+}
+
+.fotoritratto-img {
+    transition: transform 0.3s ease;
+}
+
+.fotoritratto-img:hover {
+    Scale: 1.5;   
 }
 
 .totalBody img {
 	border-radius: 8px;
 	object-fit: contain;
+	width: 500px;
+	height: 500px;
 }
 
 .button:hover {
@@ -133,11 +141,12 @@ ul li a {
 }
 
 .full-image {
-   	width: calc(100% - 40px);
-    padding-top: 10px; /* Applica 10 pixel di padding sopra la box */
-    padding-right: 20px; /* Applica 20 pixel di padding a destra della box */
-    padding-bottom: 10px; /* Applica 10 pixel di padding sotto la box */
-    padding-left: 20px; /* Applica 20 pixel di padding a sinistra della box */
+   	/*width: calc(100% - 40px);*/
+   	width: auto;
+    padding-top: 10px; 
+    padding-right: 20px; 
+    padding-bottom: 10px; 
+    padding-left: 20px; 
     display: flex;
    	justify-content: center;
     background-color: rgba(237, 233, 233, 0.9);
@@ -173,9 +182,6 @@ button {
     color: white;
     
 }
-
-
-
 
 .logo {
     width: 10rem;

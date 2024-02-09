@@ -22,9 +22,6 @@
             	</ul>
             	<a class="cta" th:href="@{/}"><button>Home</button></a>
             </div>
-            
-               
-		    
             </nav>
     </header>
 		<div class="container">
@@ -32,9 +29,9 @@
         <!-- Box immagine ritratto e dettagli attore -->
         <div class="portrait-details-container">
             <!-- Box immagine ritratto -->
-            <div class="portrait-box">
+           <div class="portrait-box">
                 <div class="fotoritratto">
-                    <img th:if="${attore.ritratto != null}" th:src="@{${attore.ritratto}}" alt="Ritratto di ${attore.nome}">
+                    <img class="fotoritratto-img" th:if="${attore.ritratto != null}" th:src="@{${attore.ritratto}}" alt="Ritratto di ${attore.nome}">
                     <img th:if="${attore.ritratto == null}" th:src="@{/img/No_immagine_disponibile.svg.png}" alt="Immagine non disponibile">
                 </div>
             </div>
@@ -63,16 +60,9 @@
         <!-- Foto intera -->
         <div class="full-image">
         	<div class="totalBody">
-            	<img th:if="${attore.foto != null}" th:src="@{${attore.foto}}" alt="Foto intera di ${attore.nome}">
+            	<img class="fotoritratto-img" th:if="${attore.foto != null}" th:src="@{${attore.foto}}" alt="Foto intera di ${attore.nome}">
             	<img th:if="${attore.foto == null}" th:src="@{/img/No_immagine_disponibile.svg.png}" alt="Immagine non disponibile">
         	</div>
-        </div>
-
-        <!-- Button Torna alla Home -->
-        <div class="button-container">
-            <form th:action="@{/}" method="get">
-                <button type="submit" class="button">Home</button>
-            </form>
         </div>
     </div>
 </div>
