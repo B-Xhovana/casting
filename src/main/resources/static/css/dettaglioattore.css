@@ -61,7 +61,6 @@ h2 {
     background-color: rgba(237, 233, 233, 0.9);
     border-radius: 8px;
     margin-bottom: 20px;
-   
     overflow: hidden; 
 }
 
@@ -98,6 +97,7 @@ ul li a {
     padding-left: 20px; 
     border-radius: 8px;
     object-fit: contain;
+    
 }
 
 .totalBody img {
