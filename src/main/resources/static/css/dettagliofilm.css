@@ -58,8 +58,8 @@ h2 {
     border-radius: 8px;
     margin-bottom: 20px;
     height: 700px; /* Altezza fissa per entrambi i box */
-    box-sizing: border-box; /* Assicura che il padding non influenzi le dimensioni totali */
-    overflow: hidden; /* Impedisce il protrarsi di contenuti che superano le dimensioni */
+    box-sizing: border-box; 
+    overflow: hidden; 
     max-width: 900px; /* Imposta una larghezza massima */
 }
 
@@ -95,13 +95,16 @@ img {
 }
 
 .trailer-box {
- 	text-align: center;
+ 	display: flex;
+ 	justify-content: center; 
+ 	height: 100%; 
+ 	width: auto;
 }
 
 
 #player-container {
-    width: 100px; 
-    height: auto; 
+    justify-content: center; 
+    margin-top: 30px; 
 }
 
 .button:hover {
