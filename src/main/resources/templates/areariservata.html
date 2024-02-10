@@ -1,61 +1,104 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta charset="UTF-8">
-		<title>Area riservata</title>
-		
-	</head>
-	<body>
-	<header>
+<head>
+    <meta charset="UTF-8">
+    <title>Area riservata</title>
+    <link rel="stylesheet" href="/css/areariservata.css">
+</head>
+<body>
+    <!-- NAVBAR -->
+    <header>
+        <div class="container-nav">
             <img class="logo" src="/img/LOGO.update.png" alt="logo">
             <nav class="nav_links">
-            
-            <div class="generi-container" >
-            	<ul th:each="genereFilms : ${filmPerGenere2}">
-            	<li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
-            	</ul>
-            	<a class="cta" th:href="@{/}"><button>Home</button></a>
-            </div>
-            
-               
-		    
+                <div class="generi-container">
+
+                    <ul th:each="genereFilms : ${filmPerGenere2}">
+                        <li class="cta"><a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a></li>
+                    </ul>
+
+                    <div class="bottoni">
+                        <a class="cta" th:href="@{/}">
+                            <button class="button-nav">Home</button>
+                        </a>
+                        <a class="cta" th:href="@{areariservata/logout}">
+                            <button class="button-nav">Log Out</button>
+                        </a>
+                    </div>
+                </div>
             </nav>
+        </div>
     </header>
-    
-		<h1 th:text="'Ciao ' + ${attore.nome} + '!' " ></h1>
-		<h2>Questa è la tua area riservata</h2>
-		<a th:href="@{/}">Torna alla Home</a>
-		<h3 th:text="${attore.nome} + ' questi sono i tuoi dati: '"></h3>
-		<a th:href="@{areariservata/logout}">Log Out</a>
-		<ul>
-			<li th:text="'Nome: ' + ${attore.nome}"></li>
-			<li th:text="'Cognome: ' + ${attore.cognome}"></li>
-			<li th:text="'Data di Nascita: ' + ${attore.dataNascita}"></li>
-			<li th:text="'Email: ' + ${attore.email}"></li>
-		</ul>
-		
-		<h3>Questa è la foto ritratto che hai caricato</h3>
-		<img th:src="${attore.ritratto}">
-		<br>
-		
-		<form th:object="${attore}" method="post" enctype="multipart/form-data">
-			<label for="ritratto" th:text="'Primo piano:'"></label>
-		    <input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}">
-			<input type="submit" class="btn btn-primary" value="Carica immagine">
-		</form>
-    	
-		<h3>Questa è la foto a figura intera che hai caricato</h3>
-		<img th:src="${attore.foto}">
-		
-		<label for="foto" th:text="'Foto intera:'"></label>
-		<form th:object="${attore}" method="post" action="/areariservata/foto" enctype="multipart/form-data">
-			<label for="foto" th:text="'Primo piano:'"></label>
-		    <input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}">
-			<input type="submit" class="btn btn-primary" value="Carica immagine">
-		</form>
-		
-		<br>
-		<a th:href="@{areariservata/cancellaaccount(id=${attore.id})}"
-			class="btn btn-danger btn-sm" th:text="'Elimina Account'"></a>
-	</body>
+
+    <!-- FINE NAVBAR -->
+
+    <!-- DATI UTENTE -->
+
+    <div class="container">
+        <!-- sinistra -->
+        <div class="sinistra">
+            <div class="info-block">
+
+                <h1 th:text="'Ciao ' + ${attore.nome} + '!'"></h1>
+                <h2>Il tuo profilo</h2>  
+                    <div class="data-block">        
+                        <ul>       
+                            <h3 th:text="${attore.nome} + ' questi sono i tuoi dati: '">I tuoi dati</h3>
+                            <li th:text="'Nome: ' + ${attore.nome}"></li>
+                            <li th:text="'Cognome: ' + ${attore.cognome}"></li> 
+                            <li th:text="'Data di Nascita: ' + ${#temporals.format(attore.dataNascita, 'dd-MM-yyyy')}"></li>
+                            <li th:text="'Email: ' + ${attore.email}"></li>
+                        </ul>
+                    </div> 
+                <div class="delete">
+                    <a th:href="@{areariservata/cancellaaccount(id=${attore.id})}" class="btn btn-danger btn-sm" th:text="'Elimina Account'">Elimina Account</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOTO -->
+        <div class="destra">
+
+            <div class="ritratto">
+                <div class="img-block">
+                    <!-- mostra user-icon se attore.ritratto è vuoto -->
+                    <img class="user-icon" th:if="${attore.ritratto == null or attore.ritratto == ''}" src="../static/img/user_icon.png" alt="">
+                    
+                    <!-- mostra attore.ritratto se non è vuota -->
+                    <img th:if="${attore.ritratto != null and attore.ritratto != ''}" th:src="${attore.ritratto}" alt="">
+                </div>
+
+                <div class="inputs">
+                    <h3>La tua foto ritratto</h3>
+                    <form th:object="${attore}" method="post" enctype="multipart/form-data">   
+                        <label for="ritratto" th:text="'Primo piano:'"></label> 
+                        <label class="custom-file-input" for="foto">Sfoglia<input type="file" id="ritratto" name="ritratto" accept="image/*" th:field="*{ritratto}"></label>
+                        <input type="submit" class="btn btn-primary" value="Carica">
+                    </form>
+                </div>
+            </div>
+           
+            <div class="intera">
+                <div class="img-block">
+                    <!--mostra user icon se attore.foto è vuota -->
+                    <img class="user-icon" th:if="${attore.foto == null or attore.foto == ''}" src="../static/img/user_icon.png" alt="">
+                    
+                    <!-- mostra attore.foto se non è vuota -->
+                    <img th:if="${attore.foto != null and attore.foto != ''}" th:src="${attore.foto}" alt="">
+                </div>
+                 
+                <div class="inputs">
+                    <h3>La tua foto a figura intera</h3>
+            
+                   <form th:object="${attore}" method="post" action="/areariservata/foto" enctype="multipart/form-data">   
+                        <label for="foto" th:text="'Foto intera:'"></label>
+                        <label class="custom-file-input" for="foto">Sfoglia<input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}"></label>
+                        <input type="submit" class="btn btn-primary" value="Carica">
+                    </form>
+                </div>
+            </div>
+                          
+        </div>
+    </div>
+</body>
 </html>

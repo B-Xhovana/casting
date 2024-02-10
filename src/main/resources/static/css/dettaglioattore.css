@@ -1,4 +1,10 @@
 @charset "ISO-8859-1";
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
  body {
 	background: url(/img/sfondo2.jpg) no-repeat;
 	background-color: rgba(0, 0, 0, 0.9);

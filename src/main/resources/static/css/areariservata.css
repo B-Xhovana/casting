@@ -1,0 +1,283 @@
+@charset "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu+Mono&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Generale */
+body {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #121212;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 100vw;
+}
+
+.container {
+    color: aliceblue;
+    background-color:  rgba(22, 39, 51, 0.835);
+    display: flex;
+    flex-wrap: wrap;
+    width: auto;
+
+    margin-top: 1vh;
+}
+
+h3 {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 100%;
+    padding-top: 6%;
+    padding-left: 6%;
+}
+
+/* navbar */
+
+.container-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    margin: 2%;
+    height: 10vh;
+}
+
+.logo {
+    height: 6rem;
+    width: 6rem;
+    cursor: pointer;
+}
+
+/* bottoni home e log out */
+
+.button-nav {
+    background-color:#88B4CD;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    height: 5vh;
+    width: 12vh;
+    margin: 5px;
+    margin-left: 10px; 
+}
+
+/* cambio del colore quando ci passa il mouse */
+.button-nav:hover {
+    background-color: #5588a3;
+    transition: all 0.2s ease-in;
+}
+
+/* cambio del colore quando premuto */
+.button-nav:active {
+    background-color: #336699;
+    box-shadow: inset 5px 5px 8px rgba(0, 0, 0, 0.5); 
+    transition: all 0.2s ease-in; 
+}
+
+
+
+/* LATO ANAGRAFICA */
+.sinistra {
+    flex: 3;
+    padding: 10px;
+    box-shadow: black 100px;
+}
+
+/* riquadro nero trasparente */
+.info-block {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    position: relative;
+}
+
+h1 {
+    padding-top: 5%;
+    
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+/* "questi sono i tuoi dati" */
+h3 {
+    display: flex;
+    justify-content: center;
+    padding-right: 5%;
+}
+
+/* lista dati */
+.data-block {
+    position: relative;
+    top: 10%;
+}
+
+ul {
+    list-style-type: none;
+    
+}
+
+li {
+    color: #88B4CD;
+    padding: 5px 10px; 
+}
+/* fine lista dati */
+
+.delete {
+    text-align: center; 
+    width: 100%;
+    padding-top: 20%;
+    padding-left: 2%;
+}
+
+.delete a:hover {
+    color: rgb(184, 80, 71);
+    transition: all 0.2s ease-in;
+}
+
+.delete a:active {
+    color: rgb(121, 27, 18);
+    font-size: 15px;
+    transition: all 0.1s ease-in;
+}
+
+/* LATO FOTO */
+
+.destra {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    background-color: #3addcf00;
+    width: auto;
+}
+
+/* riquadro che contiene img-block, h3, inputs e .custom-file-input */
+.ritratto,
+.intera {
+    display: flex;
+    flex-grow: 1; 
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.img-block {
+    background-color: rgb(98, 98, 98);     
+    max-width: 13vw;
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    flex-grow: 1; 
+    position: relative;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* icona omino */
+.user-icon {
+    /* centramento */
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    max-width: 100%; 
+    max-height: 100%; 
+    padding: 10%; 
+}
+
+.inputs {
+    margin: 2%;
+    max-width: 20vw;
+    padding-bottom: 4%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    flex-grow: 1;
+}
+
+.img-block .image,
+.img-block .inputs {
+    flex: 1; /* Per distribuire lo spazio disponibile */
+}
+
+
+/* BOTTONE 'CHOOSE FILE' */
+
+/* questo nasconde il bottone di default*/
+input[type="file"] {
+    display: none;
+}
+
+/* Questo è il css del bottone */
+.custom-file-input {
+    background-color: #868686;
+    color: white;
+    width: 90%;
+    height: 40%;
+    padding: 5%;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    font-size: 90%;
+    margin: 5%;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* cambio del colore quando ci passa il mouse */
+.custom-file-input:hover {
+    background-color: #5f5f5f;
+    transition: all 0.2s ease-in;
+}
+
+/* cambio del colore quando premuto */
+.custom-file-input:active {
+    background-color: #414141;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* FINE BOTTONE 'CHOOSE FILE' */
+
+
+
+/* BOTTONE 'CARICA IMMAGINE' */
+
+/* css del bottone */
+.inputs input[type="submit"] {
+    color: white;
+    width: 90%;
+    height: 40%;
+    background-color: #88B4CD;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center; 
+    margin: 5%;
+    box-shadow: 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* cambio del colore quando ci passa il mouse */
+.inputs input[type="submit"]:hover {
+    background-color: #5588a3;
+    transition: all 0.2s ease-in;
+}
+
+/* cambio del colore quando premuto */
+.inputs input[type="submit"]:active {
+    background-color: #336699;
+    box-shadow: inset 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* FINE BOTTONE 'CARICA IMMAGINE' */
