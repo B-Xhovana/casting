@@ -34,6 +34,7 @@ public class AreaRiservataController
 			) 
 	{
 		Attore attore = (Attore) session.getAttribute("attore");
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		model.addAttribute("attore", attore);
 		//NAV BAR
 		List<Film> films = filmService.getFilms();

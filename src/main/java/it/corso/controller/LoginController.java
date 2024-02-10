@@ -44,6 +44,7 @@ public class LoginController {
 		List<Film> films = filmService.getFilms();
 		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere2", filmPerGenere2);
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		//FINE NAVBAR
 		return "login";
 	}

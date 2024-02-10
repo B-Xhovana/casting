@@ -14,6 +14,7 @@ import it.corso.model.Attore;
 import it.corso.model.Film;
 import it.corso.service.AttoreService;
 import it.corso.service.FilmService;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class FormController {
 			@RequestParam (name="err", required=false) String emailErr,
 			@RequestParam (name="etaerr", required = false)String etaErr,
 			@RequestParam (name="incompleto", required=false) String incompleto,
-			Model model
+			Model model, HttpSession session
 			) 
 	{
 		Attore attore = new Attore();
@@ -48,6 +49,7 @@ public class FormController {
 		List<Film> films = filmService.getFilms();
 		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere2", filmPerGenere2);
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		//FINE NAVBAR
 		return "form";
 	}

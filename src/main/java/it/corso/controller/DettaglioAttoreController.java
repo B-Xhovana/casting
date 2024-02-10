@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import it.corso.model.Film;
 import it.corso.service.AttoreService;
 import it.corso.service.FilmService;
+import jakarta.servlet.http.HttpSession;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,13 +29,15 @@ public class DettaglioAttoreController {
 	@GetMapping
 	public String getPage(
 			@RequestParam ("id")int id,
-			Model model) {
+			Model model, HttpSession session) {
 		model.addAttribute("attore", attoreService.getAttoreById(id));
 		model.addAttribute("filmografia", attoreService.getFilmografia(id));
+		
 		//NAV BAR
 				List<Film> films = filmService.getFilms();
 				Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
 				model.addAttribute("filmPerGenere2", filmPerGenere2);
+				model.addAttribute("attorelog", session.getAttribute("attore") != null);
 				//FINE NAVBAR
 		return "dettaglioattore";
 	}

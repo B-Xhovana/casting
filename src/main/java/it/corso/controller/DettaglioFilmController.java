@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import it.corso.model.Film;
 import it.corso.service.FilmService;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 @RequestMapping("/dettagliofilm")
@@ -25,7 +26,7 @@ public class DettaglioFilmController {
 	@GetMapping
 	public String getPage(
 			@RequestParam ("id")int id,
-			Model model) {
+			Model model, HttpSession session) {
 		
 		model.addAttribute("film",filmService.getFilmById(id));
 		model.addAttribute("cast", filmService.getCast(id));
@@ -33,6 +34,7 @@ public class DettaglioFilmController {
 		List<Film> films = filmService.getFilms();
 		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere2", filmPerGenere2);
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		//FINE NAVBAR
 		return "dettagliofilm";
 	}

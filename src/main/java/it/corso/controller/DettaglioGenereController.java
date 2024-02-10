@@ -28,7 +28,7 @@ public class DettaglioGenereController {
 		model.addAttribute("filmPerGenere", filmPerGenere);
 		
 		
-		model.addAttribute("attorelog", session.getAttribute("attore"));
+		model.addAttribute("attorelog", session.getAttribute("attore") != null);
 		model.addAttribute("genere", genere);
 		Map<String, List<Film>> filmPerGenere2 = filmService.getFilmByGenere(films);
 		model.addAttribute("filmPerGenere2", filmPerGenere2.get(genere));
