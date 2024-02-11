@@ -1,33 +1,29 @@
-@charset "ISO-8859-1";
 * {
     margin: 0;
     padding: 0px;
     box-sizing: border-box;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 body {
 	background: url(/img/sfondo2.jpg) no-repeat;
 	background-color: rgba(0, 0, 0, 0.9);
-    font-family: monospace;
     margin: 0;
     padding: 0;
     height: 100vh;
 }
 
-h1 {
-    color: #4f6883ea;
-    margin-bottom: 10px;
+.titoloFilm {
+	font-size: 2rem;
+	font-weight: 600;
+	color:  rgba(237, 233, 233, 0.9); 
 }
 
 p {
-    font-size: large;
-    color: #4a4848;
-    margin-bottom: 5px;
-}
-
-h2 {
-   color: #4f6883ea;
-   margin-bottom: 10px;
+    font-size: 15px;
+    color: rgba(237, 233, 233, 0.9); 
+    margin-bottom: 10px;
 }
 
 
@@ -47,12 +43,17 @@ h2 {
     justify-content: flex-start;
     align-items: center;
     padding: 20px;
+    margin-top: 20px;
     background-color: rgba(10, 11, 14, 0.79);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
-    border: 1px solid rgba(135, 136, 136, 0.526);
+    /*border: 1px solid rgba(135, 136, 136, 0.526); */
 }
+
+
+
+
 
 .left-box,
 .right-box {
@@ -60,8 +61,8 @@ h2 {
    	height: 100%; 
     padding: 20px;
     text-align: center;
-    background-color: rgba(237, 233, 233, 0.9);
-    border-radius: 8px;
+    /*background-color: rgba(237, 233, 233, 0.9); 
+    border-radius: 8px; */
     margin-bottom: 20px;
     height: 700px; /* Altezza fissa per entrambi i box */
     box-sizing: border-box; 
@@ -93,9 +94,11 @@ h2 {
     margin-top: 20px; /* Aggiunge spazio sopra i dettagli del cast */
 }
 
-img {
-   	width: 600px;
-   	height: 650px;
+.locandina {
+	width: auto;
+   	max-width: 600px;
+   	height: auto;
+   	max-height: 650px;
     border-radius: 8px;
     object-fit: contain;
 }
@@ -113,75 +116,32 @@ img {
     margin-top: 30px; 
 }
 
-.button:hover {
-    background-color: #4a84ba;
-}
 
-.button {
-    width: 150px;
-    height: 30px;
-    border-radius: 15px;
-    background-color:#747171;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    margin-bottom: 30px;
-    font-family: monospace;
-    border: none; /* Rimuove la linea di contorno */
-} 
-
-.button-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 45px; 
-}
 
 /*NAVBAR*/
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0%;
-}
 
-
-button {
-    margin-left: 20px;
-    padding: 9px 25px;
-    background-color: #5f6162;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: all 0.3s ease 0s;
-}
 
 .film-cards-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     /*overflow: auto;  abitilita scroll orizontale */
-    background-color: rgba(10, 11, 14, 0.76); /*AGGIUNTO BACKGROUND*/
-    border: 1px solid #67666699; /*AGGIUNTO BORDO*/
-    border-radius: 10px; /*AGGIUNTO BORDO*/
+    /*background-color: rgba(10, 11, 14, 0.76); AGGIUNTO BACKGROUND*/
+    /*border: 1px solid #67666699; AGGIUNTO BORDO*/
+    /*border-radius: 10px; AGGIUNTO BORDO*/
 
-}
-
-li, a, button {
-    font-family: 'Ubuntu Mono', monospace;
-    font-weight: 200;
-    font-size: 15px;
-    color: #83c8f0;
-    text-decoration: none;
-    z-index: 9999;
 }
 
 /* GESTIONE CARD */
 h3 {
+    font-weight: 600;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 15px;
     color: #e9e5e5;
-    margin-top: 1rem;   
+    margin-top: 1rem;
+    text-align: flex-end;
+    padding: 5px;
+    margin-bottom: auto;
 }
 
 h4 {
@@ -193,8 +153,8 @@ h5 {
 }
 
 .card {
-    /*background-color: rgba(10, 11, 14, 0.76); */
-    height: 450px;
+	background-color: rgba(10, 11, 14, 0.76); 
+    height: 380px;
     width: 200px;
     /*border: 1px solid #9795955e; */
     border-radius: 10px;
@@ -207,65 +167,36 @@ h5 {
 }
 
 .card img {
-    /*max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    max-width: 100%; */
+	margin: 10px;
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     height: 250px; /* Change to your desired fixed height */
     object-fit: cover; /* Ensure images maintain aspect ratio while filling the specified height */
     border-radius: 10px;
 }
 
-.card img {
-    width: 180px; /* Imposta la larghezza desiderata */
-    height: 200px; /* Imposta l'altezza desiderata */
-}
-
 .card img:hover {
+	transition: all 0.1s ease-in;
 	object-fit: contain;
     scale: 1.1;
+    padding: 5px;
+    border-radius: 15px;   
 }
 
-.generi-container {
+.generi-container { 
+	display: flex;
     list-style-type: none;
     padding: 0;
     margin: 0;
-    display: flex;
 }
 
-.nav_links a {
-    color: white;
-    
-}
-
-.logo {
-    width: 10rem;
-    cursor: pointer;
-}
-
-.nav_links {
-    display: flex;
-    justify-content: space-around; 
-    align-items: center; 
-    width: 100%;
-}
-
-.nav_links li {
-    display: inline-block;
-    padding: 0px 20px;
-}
-
-.nav_links li a {
-    transform: all 0.3s ease 0s;
-}
-
-.nav_links li a:hover {
-    color: #83c8f0;
-}
 
 .cta {
 	position: relative;
 	z-index:9999;
+}
+
+.portfolio {
+	transition: all 0.3s ease 0s;
+	margin-bottom: -3rem;
 }

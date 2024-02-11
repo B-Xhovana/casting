@@ -27,12 +27,7 @@
     flex-direction: column;
     justify-content: center;
 }
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    
-}
+
 
 h2 {
     font-size: 1.3rem;
@@ -96,4 +91,3 @@ h2 {
     bottom: 0;
     z-index: -1;
 }
-  
