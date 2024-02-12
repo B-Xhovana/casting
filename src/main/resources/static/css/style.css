@@ -148,7 +148,6 @@ p {
     border: none;
     margin-bottom: 0;
     background-color: #5f6162;
-   
     transition: all 0.3s ease 0s;
    
 }
@@ -156,7 +155,6 @@ p {
 .cta-ancor a:hover {
 	background-color: #90C2E7;
     color: #564D4A;
-    
 }
 
 
