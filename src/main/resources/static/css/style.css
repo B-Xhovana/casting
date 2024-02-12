@@ -171,7 +171,7 @@ p {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 999;
+    z-index: 10000;
     background-color:  #5f6162;
     color: #fff;
     border: none;

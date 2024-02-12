@@ -20,7 +20,7 @@
        
     </head>
     
-    <body>
+    <body onscroll="scrollFunction()">
         <!-- GESTIONE NAVBAR -->
    <header>    
         <nav class="navbar navbar-expand-lg">
@@ -108,7 +108,7 @@
         
         <main>
 
-        	<button id="tornaSuBtn" class="torna-su-btn" onclick="scrollToTop()">Torna su ↑</button>
+        	<button id="tornaSuBtn" class="torna-su-btn" onclick="scrollToTop()" th:text="'Torna su ↑'"></button>
  					<!-- ULTIMI ATTORI INSERITI -->
 			 <h3>ULTIMI ATTORI ISCRITTI</h3>
 			 <div class="film-cards-container">
