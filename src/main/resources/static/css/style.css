@@ -168,10 +168,10 @@ p {
 /*NASCONDI PULSANTE TORNA SU*/
 .torna-su-btn {
     display: none;
-    position: fixed;
+    position: absolute;
     bottom: 20px;
     right: 20px;
-    z-index: 999;
+    z-index: 9999;
     background-color:  #5f6162;
     color: #fff;
     border: none;

@@ -23,7 +23,7 @@
                     <div class="navbar-nav me-auto mb-2 mb-lg-0">
                         
 
-                        <div class="linkGenere" th:each="genereFilms : ${filmPerGenere}">
+                        <div th:each="genereFilms : ${filmPerGenere2}" class="linkGenere" >
                             <li class="nav-item">
                                 <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a>
                             </li>

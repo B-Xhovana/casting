@@ -101,5 +101,9 @@ a:hover {
 .nav-item {
     display: flex;
 	justify-content: space-between;
+	margin-right: 10px; /* Aggiungi spazio tra gli elementi <li> */
 	
 }
+
+
+
