@@ -8,17 +8,21 @@
 }
 
 /* Generale */
-body {
+.areariservata body {
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
-    background-color: #121212;
-    background-size: cover; 
+    /*background-color: #121212;*/
+   /* background-size: cover; 
     background-position: center;
-    background-repeat: no-repeat;
-    overflow-y: hidden;
-    overflow-x: hidden;
+     background-repeat: no-repeat;
+   overflow-y: hidden;
+    overflow-x: hidden;*/
     height: 100vw;
+    background: url(/img/sfondo2.jpg) no-repeat;
+    background-color: rgba(0, 0, 0, 0.9);
+    margin: 0;
+    padding: 0;
 }
 
 .container {
