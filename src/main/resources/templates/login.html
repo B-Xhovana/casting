@@ -17,8 +17,8 @@
 </head>
 <body>
 
-  <header>    
-        <nav class="navbar navbar-expand-lg">
+   <header>    
+        <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
                 <img class="logoN" src="/img/LOGO.update.png" alt="logo">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,14 +26,22 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <div class="navbar-nav me-auto mb-2 mb-md-0">
+                    <div class="navbar-nav me-auto mb-2 mb-lg-0">
+                        
 
-                        <div class="linkGenere" th:each="genereFilms : ${filmPerGenere}">
+                        <div th:each="genereFilms : ${filmPerGenere2}" class="linkGenere" >
                             <li class="nav-item">
-                                <a class="ancorGenere" th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a>
+                                <a th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a>
                             </li>
                         </div>
-               </div>
+
+                        
+	        				<a class="btnNav" th:href="@{/}">Home</a>
+	    					
+
+                        
+                       
+               
             </div>  
         </div>
         </nav>
