@@ -83,8 +83,8 @@
                     <h3>La tua foto ritratto</h3>
                     <form action="" method="post" enctype="multipart/form-data">   
                         <label for="ritratto" th:text="'Primo piano:'"></label> 
-                        <label class="custom-file-input" for="ritratto">Sfoglia<input type="file" id="ritratto" name="ritratto" accept="image/*" ></label>
-                        <input type="submit" class="btn btn-primary" value="Carica">
+                        <label class="custom-file-input" for="ritratto">Sfoglia<input type="file" id="ritratto" name="ritratto" accept="image/*" onchange="updateSubmitButton()"></label>
+                        <input type="submit" class="btn btn-primary" value="Carica" id="submitBtn" disabled>
                     </form>
                 </div>
             </div>
@@ -103,13 +103,42 @@
             
                    <form th:object="${attore}" method="post" action="/areariservata/foto" enctype="multipart/form-data">   
                         <label for="foto" th:text="'Foto intera:'"></label>
-                        <label class="custom-file-input" for="foto">Sfoglia<input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}"></label>
-                        <input type="submit" class="btn btn-primary" value="Carica">
+                        <label class="custom-file-input" for="foto">Sfoglia<input type="file" id="foto" name="foto" accept="image/*" th:field="*{foto}" onchange="updateSubmitButton()"></label>
+                        <input type="submit" class="btn btn-primary" value="Carica" id="submitBtn1" disabled>
                     </form>
                 </div>
             </div>
                           
         </div>
     </div>
+    
+    <script>
+    function updateSubmitButton() {
+    	var ritrattoInput = document.getElementById('ritratto');
+        var fotoInput = document.getElementById('foto');
+        var submitButton = document.getElementById('submitBtn');
+        var submitButton1 = document.getElementById('submitBtn1');
+        
+        submitButton.disabled = !ritrattoInput.files.length; // Disabilita il pulsante se non è stato selezionato alcun file
+        submitButton1.disabled = !fotoInput.files.length;
+    }
+
+    function checkFile() {
+        var ritrattoInput = document.getElementById('ritratto');
+        var fotoInput = document.getElementById('foto');
+        if (ritrattoInput.files.length === 0) {
+            alert("Seleziona un'immagine prima di inviare il modulo.");
+            return false; // Impedisce l'invio del modulo se non è stato selezionato alcun file
+        }
+        
+        if (fotoInput.files.length === 0) {
+            alert("Seleziona un'immagine prima di inviare il modulo.");
+            return false; // Impedisce l'invio del modulo se non è stato selezionato alcun file
+        }
+
+        // Altrimenti, il modulo verrà inviato
+        return true;
+    }
+</script>
 </body>
 </html>
