@@ -16,8 +16,9 @@
    <header>    
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
-                <img class="logoN" src="/img/LOGO.update.png" alt="logo">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<a th:href="@{/}">
+                	<img class="logoN" src="/img/LOGO.update.png" alt="logo">
+                </a>                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -30,7 +31,7 @@
                                 <a class="ancorGenere" th:href="@{/dettagliogenere(gen=${genereFilms.key})}" th:text="${genereFilms.key}"></a>
                             </li>
                         </div>
-	        				<a class="btnNav" th:href="@{/}">Home</a>
+	        				
 						<div class="divBtnNav" th:if="${!attorelog}">
                             <a class="btnNav" th:href="@{/login}">Accedi</a>
                         </div>            
@@ -60,7 +61,7 @@
             <div class="details-box">
                 <h1 th:text="${attore.nome + ' ' + attore.cognome}"></h1>
                 <section>
-                    <h2>Dati Personali</h2>
+           
                     <p><strong>Nome:</strong> <span th:text="${attore.nome}"></span></p>
                     <p><strong>Cognome:</strong> <span th:text="${attore.cognome}"></span></p>
                     <p><strong>Data di Nascita:</strong> <span th:text="${#temporals.format(attore.dataNascita, 'dd-MM-yyyy')}"></span></p>

@@ -8,7 +8,7 @@ body {
     /*display: grid;  SENZA DISPLAY    SITO RESPONSIVE */
     grid-template-rows: auto 1fr auto;
     font-size: 14px;
-    background-color: rgba(10, 11, 14, 0.76);
+    background-color:#00171F;
     align-items: start;
     min-height: 100vh;
 }
@@ -30,7 +30,7 @@ body {
     flex-flow: row wrap;
     padding: 30px 30px 20px 30px;
     color: #ebebeb;
-    background-color: rgba(10, 11, 14, 0.76);
+    background-color:#00171F;
     border-top: 1px solid #f6f0f000;
 }
 
@@ -73,7 +73,7 @@ body {
     justify-content: center;
     height: 36px;
     max-width: max-content;
-    background-color: #83c8f0;
+    background-color: #90C2E7;
     border-radius: 100px;
     color: #2d2d2d;
     line-height: 0;
@@ -90,7 +90,7 @@ body {
 .footer li {
 	display: block;
 	font-size: 10px;
-    line-height: 2.3em;
+    line-height: 3em;
 }
 
 .footer a {
@@ -130,7 +130,7 @@ body {
 }
 
 .heart {
-    color: #ccc9c9;
+    color: #90C2E7;
 }
 
 @media screen and (min-width: 24.375em) {
@@ -169,12 +169,12 @@ footer {
     z-index: 10;
     position: relative;
     height: 50%;
-    background-color: #242831;
+    background-color: #00171F;
 }
 
 .logoF {
-    max-width: 20vw;
-    max-height: 20vw;
+    max-width: 15vw;
+    max-height: 15vw;
 }
 
 .footer::after {

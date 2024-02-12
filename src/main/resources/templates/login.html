@@ -20,8 +20,9 @@
    <header>    
         <nav class="navbar navbar-expand-md">
             <div class="container-fluid">
-                <img class="logoN" src="/img/LOGO.update.png" alt="logo">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<a th:href="@{/}">
+                	<img class="logoN" src="/img/LOGO.update.png" alt="logo">
+                </a>                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -35,13 +36,6 @@
                             </li>
                         </div>
 
-                        
-	        				<a class="btnNav" th:href="@{/}">Home</a>
-	    					
-
-                        
-                       
-               
             </div>  
         </div>
         </nav>
@@ -84,9 +78,7 @@
                     <span><a th:href="@{/registrazione}">Non hai un account? Registrati</a></span>
                     
                 </div>
-				<div style="margin-top: 20px;">
-                    <a th:href="@{/}" th:text="'Torna Alla Home'" style="color:white;"></a>
-                </div>
+				
             </form>
             
         </div>

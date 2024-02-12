@@ -117,7 +117,7 @@
                     <img class="imgCard" th:src="${attore.ritratto}" th:alt="${attore.nome} + ' ' + ${attore.cognome}">
                     <h3 th:text="${attore.nome} + ' ' + ${attore.cognome}"></h3>
                     <div class="cta">
-                     <a class="portfolio" th:href="@{/dettaglioattore(id=${attore.id})}">vedi portfolio</a>
+                     <a class="portfolio" th:href="@{/dettaglioattore(id=${attore.id})}">Vedi Portfolio</a>
                     </div>
                 </div>
 
@@ -127,7 +127,7 @@
            
  <!-- INIZIO ELENCO FILM PER GENERE -->   
             <div class="cta" th:each="genereFilms : ${filmPerGenere}">
-            <a class="ancoraGenere" th:text="${genereFilms.key}" th:id="${genereFilms.key}">          
+            <a class="linkGenere" th:text="${genereFilms.key}" th:id="${genereFilms.key}">          
             </a>
             <div class="film-cards-container">
             <div th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
@@ -135,7 +135,7 @@
                     <img class="imgCard" th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>
                     <div class="cta-ancor">
-                    <a th:href="@{/dettagliofilm(id=${film.id})}">dettagli</a>
+                    <a th:href="@{/dettagliofilm(id=${film.id})}">Dettagli</a>
 <!--  <a th:href="@{/dettagliofilm(id=${film.id})}"><button class="btn-details">dettagli</button></a>   -->                 
                     </div>
                 </div>

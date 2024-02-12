@@ -1,10 +1,12 @@
-@charset "ISO-8859-1";
-@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Ubuntu+Mono&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
+	background-color:#00171F;
 }
 
 /* Generale */
@@ -19,15 +21,13 @@
    overflow-y: hidden;
     overflow-x: hidden;*/
     height: 100vw;
-    background: url(/img/sfondo2.jpg) no-repeat;
-    background-color: rgba(0, 0, 0, 0.9);
-    margin: 0;
-    padding: 0;
+    /*background: url(/img/sfondo2.jpg) no-repeat; */
 }
 
 .container {
     color: aliceblue;
-    background-color:  rgba(22, 39, 51, 0.835);
+    /*background-color:  rgba(22, 39, 51, 0.835);*/
+    background-color:#00171F;
     display: flex;
     flex-wrap: wrap;
     width: auto;
@@ -63,8 +63,7 @@ h3 {
 /* bottoni home e log out */
 
 .button-nav {
-    background-color:#88B4CD;
-    color: #fff;
+    background-color:#90C2E7;
     border: none;
     border-radius: 10px;
     height: 5vh;
@@ -75,13 +74,13 @@ h3 {
 
 /* cambio del colore quando ci passa il mouse */
 .button-nav:hover {
-    background-color: #5588a3;
+    background-color: #90C2E7;
     transition: all 0.2s ease-in;
 }
 
 /* cambio del colore quando premuto */
 .button-nav:active {
-    background-color: #336699;
+    background-color: #90C2E7;
     box-shadow: inset 5px 5px 8px rgba(0, 0, 0, 0.5); 
     transition: all 0.2s ease-in; 
 }
@@ -132,8 +131,8 @@ ul {
 }
 
 li {
-    color: #88B4CD;
-    padding: 5px 10px; 
+    color: #90C2E7;
+    /*padding: 5px 10px; */
 }
 /* fine lista dati */
 
@@ -145,7 +144,8 @@ li {
 }
 
 .delete a:hover {
-    color: rgb(184, 80, 71);
+	background-color: aliceblue;
+    color:#00171F;
     transition: all 0.2s ease-in;
 }
 
@@ -153,6 +153,8 @@ li {
     color: rgb(121, 27, 18);
     font-size: 15px;
     transition: all 0.1s ease-in;
+    padding: 5px;
+    border-radius: 25px;
 }
 
 /* LATO FOTO */
@@ -224,14 +226,14 @@ input[type="file"] {
     display: none;
 }
 
-/* Questo è il css del bottone */
+/* Questo ï¿½ il css del bottone */
 .custom-file-input {
     background-color: #868686;
     color: white;
-    width: 90%;
-    height: 40%;
+    width: 70%;
+    height: 30%;
     padding: 5%;
-    border-radius: 10px;
+    border-radius: 25px;
     text-align: center;
     cursor: pointer;
     display: inline-block;
@@ -262,11 +264,12 @@ input[type="file"] {
 /* css del bottone */
 .inputs input[type="submit"] {
     color: white;
-    width: 90%;
-    height: 40%;
-    background-color: #88B4CD;
+    width: 70%;
+    height: 30%;
+    padding: 5px;
+    background-color: #90C2E7;
     border: none;
-    border-radius: 10px;
+    border-radius: 25px;
     cursor: pointer;
     text-align: center; 
     margin: 5%;
@@ -275,7 +278,7 @@ input[type="file"] {
 
 /* cambio del colore quando ci passa il mouse */
 .inputs input[type="submit"]:hover {
-    background-color: #5588a3;
+    background-color: #90C2E7;
     transition: all 0.2s ease-in;
 }
 

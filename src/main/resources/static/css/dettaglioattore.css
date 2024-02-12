@@ -5,9 +5,10 @@
 }
 
  body {
-	background: url(/img/sfondo2.jpg) no-repeat;
+	/*background: url(/img/sfondo2.jpg) no-repeat;
 	background-color: rgba(0, 0, 0, 0.9);
-    font-family: monospace;
+    font-family: monospace;*/
+    background-color:#00171F;
     margin: 0;
     padding: 0;
     height: 100vh;

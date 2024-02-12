@@ -6,12 +6,11 @@
 }
 
 body {
-    /*background: url(/img/sfondo.jpg) no-repeat;
-    background-position: center;
-    font-weight: 500;*/
     background: url(/img/sfondo2.jpg) no-repeat;
-	background-color: rgba(0, 0, 0, 0.9);
+    background-position: center;
+    font-weight: 500;
     background-size: cover;
+	/*background-color:#272635;*/
     min-height: 100vh;
     width: 100%;
 }
@@ -41,7 +40,7 @@ body {
     align-items: center;
     background-color: rgba(10, 11, 14, 0.76);
     border-radius: 10px; 
-    border: none;
+    border: 1px solid rgba(135, 136, 136, 0.526);
     width: 90%; /* Adatta la larghezza al 90% del genitore */
     max-width: 380px; /* Larghezza massima */
     min-width: 350px;
