@@ -127,10 +127,10 @@
            
  <!-- INIZIO ELENCO FILM PER GENERE -->   
             <div class="cta" th:each="genereFilms : ${filmPerGenere}">
-            <a class="linkGenere" th:text="${genereFilms.key}" th:id="${genereFilms.key}">          
+            <a class="linkGenere" th:text="${genereFilms.key}" th:id="${genereFilms.key}" th:href="@{/dettagliogenere(gen=${genereFilms.key})}">          
             </a>
             <div class="film-cards-container">
-            <div th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
+            <div  th:each="film, iterStat : ${genereFilms.value}" th:if="${iterStat.index &lt; 5}" >
                 <div class="card">
                     <img class="imgCard" th:src="${film.locandina}" th:alt="${film.titolo}">
                     <h3 th:text="${film.titolo}"></h3>

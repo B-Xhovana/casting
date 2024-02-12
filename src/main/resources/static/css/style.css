@@ -166,6 +166,10 @@ p {
     margin: 0;
     display: flex;
 }
+.linkGenere{
+	color: #fff !important;
+	z-index: 9999;
+}
 
 /*NASCONDI PULSANTE TORNA SU*/
 .torna-su-btn {
@@ -186,3 +190,5 @@ p {
 .torna-su-btn:hover {
     background-color:#90C2E7;
 }
+
+
