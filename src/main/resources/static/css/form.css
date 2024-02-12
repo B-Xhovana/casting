@@ -7,8 +7,8 @@
 
 body {
     /*background: url(/img/sfondo.jpg) no-repeat;
-    background-position: center;*/
-    font-weight: 500;
+    background-position: center;
+    font-weight: 500;*/
     background: url(/img/sfondo2.jpg) no-repeat;
 	background-color: rgba(0, 0, 0, 0.9);
     background-size: cover;
@@ -45,7 +45,7 @@ body {
     width: 90%; /* Adatta la larghezza al 90% del genitore */
     max-width: 380px; /* Larghezza massima */
     min-width: 350px;
-    height: auto; /* Altezza automatica */
+    height: 550px; /* Altezza automatica */
 }
 
 .form-box h2 {
@@ -87,12 +87,12 @@ input::placeholder {
     font-size: 15px;
 }
 
-.button {
+.btnSubmit {
     display: flex;
     align-items: center;
 }
 
-.button input {
+.btnSubmit input {
     
     color: #151313;
     background: #88B4CD;

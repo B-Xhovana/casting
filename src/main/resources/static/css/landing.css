@@ -1,13 +1,19 @@
 .slide{
-    margin: 0 auto;
+    position: fixed;
+    overflow: hidden;
+    
+    left: 0%;
     width: 100%;
-    position: relative;
+    height: 100%;
 }
 
 .slide video{
-    position: relative;
-    z-index: 1;
-    width: 100%;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+    /*position: relative;
+    z-index: 1;*/
+    
 }
 
 .video-controls {
@@ -91,3 +97,4 @@ h2 {
     bottom: 0;
     z-index: -1;
 }
+  

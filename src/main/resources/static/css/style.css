@@ -1,9 +1,9 @@
 body {
     background-position: center;
     background: url(/img/sfondo2.jpg) no-repeat;
-	background-color: rgba(0, 0, 0, 0.9);
-	height: 100vh;
-    
+    background-size: cover;
+  	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.9)
     /*min-height: 100vh;
     width: 100%; */
 }
@@ -110,7 +110,7 @@ h3 {
     border-radius: 10px;
 }
 
-img {
+.imgCard {
     width: 170px; /* Imposta la larghezza desiderata */
     height: 200px; /* Imposta l'altezza desiderata */
     margin-left: 10px;
@@ -168,10 +168,10 @@ p {
 /*NASCONDI PULSANTE TORNA SU*/
 .torna-su-btn {
     display: none;
-    position: absolute;
+    position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 9999;
+    z-index: 999;
     background-color:  #5f6162;
     color: #fff;
     border: none;
@@ -184,4 +184,3 @@ p {
 .torna-su-btn:hover {
     background-color: #0056b3;
 }
-
